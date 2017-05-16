@@ -1,0 +1,673 @@
+berlin_000000_000019_leftImg8bit.png,736,240,752,272,pole
+berlin_000000_000019_leftImg8bit.png,224,496,1216,592,ego vehicle
+berlin_000000_000019_leftImg8bit.png,32,0,896,240,vegetation
+berlin_000000_000019_leftImg8bit.png,496,0,1008,240,vegetation
+berlin_000000_000019_leftImg8bit.png,16,0,416,208,vegetation
+berlin_000000_000019_leftImg8bit.png,1072,0,1184,224,vegetation
+berlin_000000_000019_leftImg8bit.png,96,288,1200,576,road
+berlin_000001_000019_leftImg8bit.png,624,240,688,288,car
+berlin_000001_000019_leftImg8bit.png,912,176,928,192,traffic sign
+berlin_000001_000019_leftImg8bit.png,736,224,752,240,traffic sign
+berlin_000001_000019_leftImg8bit.png,912,192,928,208,traffic sign
+berlin_000001_000019_leftImg8bit.png,944,208,960,304,pole
+berlin_000001_000019_leftImg8bit.png,384,192,400,240,pole
+berlin_000001_000019_leftImg8bit.png,416,192,432,256,pole
+berlin_000001_000019_leftImg8bit.png,784,224,928,304,cargroup
+berlin_000001_000019_leftImg8bit.png,80,288,1232,576,road
+berlin_000001_000019_leftImg8bit.png,240,496,1248,592,ego vehicle
+berlin_000001_000019_leftImg8bit.png,-32,0,1056,224,vegetation
+berlin_000001_000019_leftImg8bit.png,-16,0,512,208,vegetation
+berlin_000001_000019_leftImg8bit.png,544,16,1120,224,vegetation
+berlin_000001_000019_leftImg8bit.png,880,0,1136,160,vegetation
+berlin_000002_000019_leftImg8bit.png,288,128,304,192,pole
+berlin_000002_000019_leftImg8bit.png,752,208,768,256,pole
+berlin_000002_000019_leftImg8bit.png,288,160,304,256,pole
+berlin_000002_000019_leftImg8bit.png,1056,176,1072,288,pole
+berlin_000002_000019_leftImg8bit.png,896,192,912,272,pole
+berlin_000002_000019_leftImg8bit.png,240,496,1168,592,ego vehicle
+berlin_000002_000019_leftImg8bit.png,688,0,848,112,vegetation
+berlin_000002_000019_leftImg8bit.png,48,0,320,128,vegetation
+berlin_000002_000019_leftImg8bit.png,544,128,736,224,vegetation
+berlin_000002_000019_leftImg8bit.png,32,16,368,224,vegetation
+berlin_000002_000019_leftImg8bit.png,80,288,1200,592,road
+berlin_000002_000019_leftImg8bit.png,752,192,768,208,traffic sign
+berlin_000003_000019_leftImg8bit.png,1088,16,1184,80,building
+berlin_000003_000019_leftImg8bit.png,208,16,512,176,sky
+berlin_000003_000019_leftImg8bit.png,944,192,960,288,pole
+berlin_000003_000019_leftImg8bit.png,352,208,368,272,pole
+berlin_000003_000019_leftImg8bit.png,736,208,752,288,pole
+berlin_000003_000019_leftImg8bit.png,864,32,880,160,pole
+berlin_000003_000019_leftImg8bit.png,1088,16,1104,336,pole
+berlin_000003_000019_leftImg8bit.png,48,304,1216,592,road
+berlin_000003_000019_leftImg8bit.png,240,496,1168,592,ego vehicle
+berlin_000003_000019_leftImg8bit.png,496,0,640,240,vegetation
+berlin_000003_000019_leftImg8bit.png,944,48,1088,208,vegetation
+berlin_000003_000019_leftImg8bit.png,80,80,176,208,vegetation
+berlin_000003_000019_leftImg8bit.png,208,176,336,224,vegetation
+berlin_000003_000019_leftImg8bit.png,1104,96,1184,176,vegetation
+berlin_000004_000019_leftImg8bit.png,608,0,720,112,sky
+berlin_000004_000019_leftImg8bit.png,912,160,928,176,traffic sign
+berlin_000004_000019_leftImg8bit.png,912,160,944,176,traffic sign
+berlin_000004_000019_leftImg8bit.png,896,144,928,176,traffic sign
+berlin_000004_000019_leftImg8bit.png,832,240,848,304,pole
+berlin_000004_000019_leftImg8bit.png,800,240,816,288,pole
+berlin_000004_000019_leftImg8bit.png,944,224,1168,400,cargroup
+berlin_000004_000019_leftImg8bit.png,16,192,400,400,cargroup
+berlin_000004_000019_leftImg8bit.png,112,288,1248,576,road
+berlin_000004_000019_leftImg8bit.png,256,496,1248,592,ego vehicle
+berlin_000004_000019_leftImg8bit.png,1088,0,1184,208,vegetation
+berlin_000004_000019_leftImg8bit.png,16,0,816,256,vegetation
+berlin_000004_000019_leftImg8bit.png,736,0,1056,224,vegetation
+berlin_000005_000019_leftImg8bit.png,64,32,224,192,building
+berlin_000005_000019_leftImg8bit.png,0,208,160,464,car
+berlin_000005_000019_leftImg8bit.png,32,224,448,432,cargroup
+berlin_000005_000019_leftImg8bit.png,704,208,1184,384,cargroup
+berlin_000005_000019_leftImg8bit.png,672,224,992,320,cargroup
+berlin_000005_000019_leftImg8bit.png,0,224,256,448,cargroup
+berlin_000005_000019_leftImg8bit.png,64,272,1200,592,road
+berlin_000005_000019_leftImg8bit.png,224,496,1184,592,ego vehicle
+berlin_000005_000019_leftImg8bit.png,192,0,752,208,vegetation
+berlin_000005_000019_leftImg8bit.png,528,0,1168,176,vegetation
+berlin_000005_000019_leftImg8bit.png,880,0,1168,160,vegetation
+berlin_000006_000019_leftImg8bit.png,464,0,688,128,sky
+berlin_000006_000019_leftImg8bit.png,864,160,880,176,traffic sign
+berlin_000006_000019_leftImg8bit.png,528,208,544,224,traffic sign
+berlin_000006_000019_leftImg8bit.png,752,240,1184,448,cargroup
+berlin_000006_000019_leftImg8bit.png,48,288,1168,592,road
+berlin_000006_000019_leftImg8bit.png,240,496,1216,592,ego vehicle
+berlin_000006_000019_leftImg8bit.png,0,0,320,192,vegetation
+berlin_000006_000019_leftImg8bit.png,656,0,880,208,vegetation
+berlin_000006_000019_leftImg8bit.png,992,0,1168,144,vegetation
+berlin_000006_000019_leftImg8bit.png,320,176,352,208,vegetation
+berlin_000007_000019_leftImg8bit.png,1040,0,1184,208,building
+berlin_000007_000019_leftImg8bit.png,816,240,1184,336,cargroup
+berlin_000007_000019_leftImg8bit.png,16,240,320,384,cargroup
+berlin_000007_000019_leftImg8bit.png,720,240,992,320,cargroup
+berlin_000007_000019_leftImg8bit.png,240,496,1232,592,ego vehicle
+berlin_000007_000019_leftImg8bit.png,-32,0,1216,208,vegetation
+berlin_000007_000019_leftImg8bit.png,48,288,1200,576,road
+berlin_000008_000019_leftImg8bit.png,448,32,576,160,sky
+berlin_000008_000019_leftImg8bit.png,816,160,832,176,traffic sign
+berlin_000008_000019_leftImg8bit.png,816,16,832,240,pole
+berlin_000008_000019_leftImg8bit.png,80,192,576,384,cargroup
+berlin_000008_000019_leftImg8bit.png,864,208,1200,416,cargroup
+berlin_000008_000019_leftImg8bit.png,32,288,1184,592,road
+berlin_000008_000019_leftImg8bit.png,0,-16,16,272,rectification border
+berlin_000008_000019_leftImg8bit.png,208,480,1216,592,ego vehicle
+berlin_000008_000019_leftImg8bit.png,0,0,448,176,vegetation
+berlin_000008_000019_leftImg8bit.png,576,0,816,224,vegetation
+berlin_000008_000019_leftImg8bit.png,48,0,720,224,vegetation
+berlin_000009_000019_leftImg8bit.png,1008,0,1184,208,building
+berlin_000009_000019_leftImg8bit.png,384,0,672,128,sky
+berlin_000009_000019_leftImg8bit.png,752,224,1168,416,cargroup
+berlin_000009_000019_leftImg8bit.png,208,288,1184,576,road
+berlin_000009_000019_leftImg8bit.png,224,496,1216,592,ego vehicle
+berlin_000009_000019_leftImg8bit.png,16,64,208,224,vegetation
+berlin_000009_000019_leftImg8bit.png,672,0,960,192,vegetation
+berlin_000009_000019_leftImg8bit.png,288,160,544,256,vegetation
+berlin_000010_000019_leftImg8bit.png,16,0,320,208,building
+berlin_000010_000019_leftImg8bit.png,320,16,432,144,sky
+berlin_000010_000019_leftImg8bit.png,736,144,752,160,traffic sign
+berlin_000010_000019_leftImg8bit.png,16,192,32,288,pole
+berlin_000010_000019_leftImg8bit.png,16,-32,32,320,pole
+berlin_000010_000019_leftImg8bit.png,880,48,896,160,pole
+berlin_000010_000019_leftImg8bit.png,880,112,896,192,pole
+berlin_000010_000019_leftImg8bit.png,864,224,1136,320,cargroup
+berlin_000010_000019_leftImg8bit.png,48,288,1200,576,road
+berlin_000010_000019_leftImg8bit.png,208,496,1232,592,ego vehicle
+berlin_000010_000019_leftImg8bit.png,448,80,576,144,vegetation
+berlin_000010_000019_leftImg8bit.png,928,64,1072,208,vegetation
+berlin_000010_000019_leftImg8bit.png,784,112,848,144,vegetation
+berlin_000011_000019_leftImg8bit.png,352,0,560,64,sky
+berlin_000011_000019_leftImg8bit.png,224,256,240,272,traffic sign
+berlin_000011_000019_leftImg8bit.png,224,240,240,256,traffic sign
+berlin_000011_000019_leftImg8bit.png,288,496,1216,592,ego vehicle
+berlin_000011_000019_leftImg8bit.png,80,0,336,208,vegetation
+berlin_000011_000019_leftImg8bit.png,576,16,864,144,vegetation
+berlin_000011_000019_leftImg8bit.png,208,-16,352,224,vegetation
+berlin_000011_000019_leftImg8bit.png,576,32,752,128,vegetation
+berlin_000011_000019_leftImg8bit.png,1040,32,1120,128,vegetation
+berlin_000011_000019_leftImg8bit.png,64,288,1264,592,road
+berlin_000012_000019_leftImg8bit.png,960,16,1184,208,building
+berlin_000012_000019_leftImg8bit.png,960,240,1184,368,car
+berlin_000012_000019_leftImg8bit.png,832,176,848,192,traffic sign
+berlin_000012_000019_leftImg8bit.png,368,160,384,256,pole
+berlin_000012_000019_leftImg8bit.png,240,128,256,208,pole
+berlin_000012_000019_leftImg8bit.png,832,192,848,288,pole
+berlin_000012_000019_leftImg8bit.png,368,208,384,256,pole
+berlin_000012_000019_leftImg8bit.png,448,192,464,288,pole
+berlin_000012_000019_leftImg8bit.png,80,304,1200,592,road
+berlin_000012_000019_leftImg8bit.png,304,496,1168,592,ego vehicle
+berlin_000012_000019_leftImg8bit.png,0,16,256,208,vegetation
+berlin_000012_000019_leftImg8bit.png,48,16,912,240,vegetation
+berlin_000012_000019_leftImg8bit.png,16,0,432,240,vegetation
+berlin_000012_000019_leftImg8bit.png,416,0,848,224,vegetation
+berlin_000013_000019_leftImg8bit.png,608,16,720,144,sky
+berlin_000013_000019_leftImg8bit.png,1008,176,1024,272,pole
+berlin_000013_000019_leftImg8bit.png,752,240,1008,336,cargroup
+berlin_000013_000019_leftImg8bit.png,64,304,1184,592,road
+berlin_000013_000019_leftImg8bit.png,240,496,1200,592,ego vehicle
+berlin_000013_000019_leftImg8bit.png,-16,0,672,224,vegetation
+berlin_000013_000019_leftImg8bit.png,688,0,1184,208,vegetation
+berlin_000013_000019_leftImg8bit.png,320,0,1120,224,vegetation
+berlin_000014_000019_leftImg8bit.png,1024,16,1184,224,building
+berlin_000014_000019_leftImg8bit.png,16,240,320,336,cargroup
+berlin_000014_000019_leftImg8bit.png,736,224,1008,320,cargroup
+berlin_000014_000019_leftImg8bit.png,240,496,1216,592,ego vehicle
+berlin_000014_000019_leftImg8bit.png,272,0,624,192,vegetation
+berlin_000014_000019_leftImg8bit.png,592,0,1040,192,vegetation
+berlin_000014_000019_leftImg8bit.png,112,0,1008,224,vegetation
+berlin_000014_000019_leftImg8bit.png,16,272,1184,592,road
+berlin_000015_000019_leftImg8bit.png,1040,0,1184,192,building
+berlin_000015_000019_leftImg8bit.png,896,0,1168,208,building
+berlin_000015_000019_leftImg8bit.png,736,224,1152,400,cargroup
+berlin_000015_000019_leftImg8bit.png,80,240,400,352,cargroup
+berlin_000015_000019_leftImg8bit.png,704,224,1024,336,cargroup
+berlin_000015_000019_leftImg8bit.png,224,496,1200,592,ego vehicle
+berlin_000015_000019_leftImg8bit.png,0,0,896,224,vegetation
+berlin_000015_000019_leftImg8bit.png,0,288,1200,576,road
+berlin_000016_000019_leftImg8bit.png,944,0,1200,240,building
+berlin_000016_000019_leftImg8bit.png,592,240,832,320,cargroup
+berlin_000016_000019_leftImg8bit.png,80,240,416,320,cargroup
+berlin_000016_000019_leftImg8bit.png,240,480,1200,592,ego vehicle
+berlin_000016_000019_leftImg8bit.png,16,0,224,144,vegetation
+berlin_000016_000019_leftImg8bit.png,224,0,928,208,vegetation
+berlin_000016_000019_leftImg8bit.png,32,0,544,208,vegetation
+berlin_000016_000019_leftImg8bit.png,256,0,592,192,vegetation
+berlin_000016_000019_leftImg8bit.png,32,304,1200,592,road
+berlin_000017_000019_leftImg8bit.png,960,0,1216,208,building
+berlin_000017_000019_leftImg8bit.png,576,0,688,80,sky
+berlin_000017_000019_leftImg8bit.png,816,176,832,192,traffic sign
+berlin_000017_000019_leftImg8bit.png,368,256,480,304,cargroup
+berlin_000017_000019_leftImg8bit.png,160,240,400,320,cargroup
+berlin_000017_000019_leftImg8bit.png,16,288,1200,576,road
+berlin_000017_000019_leftImg8bit.png,208,496,1216,592,ego vehicle
+berlin_000017_000019_leftImg8bit.png,192,0,672,224,vegetation
+berlin_000017_000019_leftImg8bit.png,80,0,1088,224,vegetation
+berlin_000018_000019_leftImg8bit.png,928,16,1200,208,building
+berlin_000018_000019_leftImg8bit.png,768,48,784,160,pole
+berlin_000018_000019_leftImg8bit.png,800,224,880,288,cargroup
+berlin_000018_000019_leftImg8bit.png,-16,288,1200,592,road
+berlin_000018_000019_leftImg8bit.png,0,0,16,272,rectification border
+berlin_000018_000019_leftImg8bit.png,208,496,1200,592,ego vehicle
+berlin_000018_000019_leftImg8bit.png,592,0,768,224,vegetation
+berlin_000018_000019_leftImg8bit.png,16,0,656,192,vegetation
+berlin_000018_000019_leftImg8bit.png,768,0,880,128,vegetation
+berlin_000018_000019_leftImg8bit.png,240,0,560,224,vegetation
+berlin_000019_000019_leftImg8bit.png,624,0,704,48,sky
+berlin_000019_000019_leftImg8bit.png,960,176,976,192,traffic sign
+berlin_000019_000019_leftImg8bit.png,960,192,976,208,traffic sign
+berlin_000019_000019_leftImg8bit.png,832,224,848,240,traffic sign
+berlin_000019_000019_leftImg8bit.png,960,208,976,224,traffic sign
+berlin_000019_000019_leftImg8bit.png,1056,160,1072,224,pole
+berlin_000019_000019_leftImg8bit.png,1168,160,1184,256,pole
+berlin_000019_000019_leftImg8bit.png,496,176,512,224,pole
+berlin_000019_000019_leftImg8bit.png,928,224,1152,336,cargroup
+berlin_000019_000019_leftImg8bit.png,800,240,1120,320,cargroup
+berlin_000019_000019_leftImg8bit.png,80,288,1216,576,road
+berlin_000019_000019_leftImg8bit.png,256,496,1200,592,ego vehicle
+berlin_000019_000019_leftImg8bit.png,-48,16,1136,208,vegetation
+berlin_000019_000019_leftImg8bit.png,16,0,448,192,vegetation
+berlin_000019_000019_leftImg8bit.png,1056,0,1200,144,vegetation
+berlin_000019_000019_leftImg8bit.png,432,0,1072,208,vegetation
+berlin_000019_000019_leftImg8bit.png,352,0,672,208,vegetation
+berlin_000020_000019_leftImg8bit.png,944,32,960,112,pole
+berlin_000020_000019_leftImg8bit.png,944,64,960,128,pole
+berlin_000020_000019_leftImg8bit.png,944,0,960,240,pole
+berlin_000020_000019_leftImg8bit.png,912,160,944,192,traffic sign
+berlin_000020_000019_leftImg8bit.png,864,144,880,176,traffic sign
+berlin_000020_000019_leftImg8bit.png,304,496,1216,592,ego vehicle
+berlin_000020_000019_leftImg8bit.png,-48,0,1168,208,vegetation
+berlin_000020_000019_leftImg8bit.png,976,0,1168,112,vegetation
+berlin_000020_000019_leftImg8bit.png,976,0,1088,96,vegetation
+berlin_000020_000019_leftImg8bit.png,48,288,1232,592,road
+berlin_000021_000019_leftImg8bit.png,672,176,688,288,pole
+berlin_000021_000019_leftImg8bit.png,80,96,96,160,pole
+berlin_000021_000019_leftImg8bit.png,288,192,304,288,pole
+berlin_000021_000019_leftImg8bit.png,320,192,336,272,pole
+berlin_000021_000019_leftImg8bit.png,224,496,1232,592,ego vehicle
+berlin_000021_000019_leftImg8bit.png,48,0,192,80,vegetation
+berlin_000021_000019_leftImg8bit.png,48,352,1200,592,road
+berlin_000022_000019_leftImg8bit.png,1104,16,1184,288,building
+berlin_000022_000019_leftImg8bit.png,736,0,832,112,sky
+berlin_000022_000019_leftImg8bit.png,192,0,464,80,sky
+berlin_000022_000019_leftImg8bit.png,1040,176,1056,192,traffic sign
+berlin_000022_000019_leftImg8bit.png,944,192,960,208,traffic sign
+berlin_000022_000019_leftImg8bit.png,944,208,960,224,traffic sign
+berlin_000022_000019_leftImg8bit.png,928,208,944,224,traffic sign
+berlin_000022_000019_leftImg8bit.png,1040,160,1072,192,traffic sign
+berlin_000022_000019_leftImg8bit.png,944,208,960,304,pole
+berlin_000022_000019_leftImg8bit.png,944,224,960,272,pole
+berlin_000022_000019_leftImg8bit.png,400,176,416,224,pole
+berlin_000022_000019_leftImg8bit.png,576,288,592,320,pole
+berlin_000022_000019_leftImg8bit.png,576,176,592,256,pole
+berlin_000022_000019_leftImg8bit.png,384,144,400,208,pole
+berlin_000022_000019_leftImg8bit.png,48,304,1216,592,road
+berlin_000022_000019_leftImg8bit.png,288,496,1216,592,ego vehicle
+berlin_000022_000019_leftImg8bit.png,0,32,416,304,vegetation
+berlin_000022_000019_leftImg8bit.png,432,0,576,256,vegetation
+berlin_000022_000019_leftImg8bit.png,816,0,1072,256,vegetation
+berlin_000022_000019_leftImg8bit.png,608,0,800,240,vegetation
+berlin_000022_000019_leftImg8bit.png,640,0,1040,272,vegetation
+berlin_000022_000019_leftImg8bit.png,448,0,560,160,vegetation
+berlin_000023_000019_leftImg8bit.png,48,224,432,368,cargroup
+berlin_000023_000019_leftImg8bit.png,256,496,1216,592,ego vehicle
+berlin_000023_000019_leftImg8bit.png,0,0,1216,208,vegetation
+berlin_000023_000019_leftImg8bit.png,16,288,1152,576,road
+berlin_000024_000019_leftImg8bit.png,0,16,128,192,building
+berlin_000024_000019_leftImg8bit.png,224,16,448,192,building
+berlin_000024_000019_leftImg8bit.png,432,0,704,128,sky
+berlin_000024_000019_leftImg8bit.png,736,192,752,208,traffic sign
+berlin_000024_000019_leftImg8bit.png,944,128,976,160,traffic sign
+berlin_000024_000019_leftImg8bit.png,928,128,960,160,traffic sign
+berlin_000024_000019_leftImg8bit.png,816,208,832,272,pole
+berlin_000024_000019_leftImg8bit.png,688,224,704,288,pole
+berlin_000024_000019_leftImg8bit.png,272,208,288,272,pole
+berlin_000024_000019_leftImg8bit.png,336,208,608,304,cargroup
+berlin_000024_000019_leftImg8bit.png,128,32,208,192,vegetation
+berlin_000024_000019_leftImg8bit.png,208,496,1168,592,ego vehicle
+berlin_000024_000019_leftImg8bit.png,48,288,1248,592,road
+berlin_000025_000019_leftImg8bit.png,816,0,1200,240,building
+berlin_000025_000019_leftImg8bit.png,512,0,784,128,sky
+berlin_000025_000019_leftImg8bit.png,1136,128,1152,160,traffic sign
+berlin_000025_000019_leftImg8bit.png,1136,176,1152,288,pole
+berlin_000025_000019_leftImg8bit.png,1088,192,1104,288,pole
+berlin_000025_000019_leftImg8bit.png,1072,240,1088,304,pole
+berlin_000025_000019_leftImg8bit.png,944,224,960,288,pole
+berlin_000025_000019_leftImg8bit.png,1056,240,1072,288,pole
+berlin_000025_000019_leftImg8bit.png,960,224,976,272,pole
+berlin_000025_000019_leftImg8bit.png,1008,240,1024,288,pole
+berlin_000025_000019_leftImg8bit.png,992,240,1008,288,pole
+berlin_000025_000019_leftImg8bit.png,880,208,896,240,pole
+berlin_000025_000019_leftImg8bit.png,592,208,800,288,cargroup
+berlin_000025_000019_leftImg8bit.png,688,112,768,192,vegetation
+berlin_000025_000019_leftImg8bit.png,0,16,16,304,rectification border
+berlin_000025_000019_leftImg8bit.png,256,496,1216,608,ego vehicle
+berlin_000025_000019_leftImg8bit.png,48,288,1200,592,road
+berlin_000026_000019_leftImg8bit.png,1072,16,1200,240,building
+berlin_000026_000019_leftImg8bit.png,544,0,624,112,sky
+berlin_000026_000019_leftImg8bit.png,1040,64,1056,96,traffic sign
+berlin_000026_000019_leftImg8bit.png,448,128,464,208,pole
+berlin_000026_000019_leftImg8bit.png,224,144,240,192,pole
+berlin_000026_000019_leftImg8bit.png,1056,144,1072,224,pole
+berlin_000026_000019_leftImg8bit.png,512,192,528,240,pole
+berlin_000026_000019_leftImg8bit.png,16,224,528,416,cargroup
+berlin_000026_000019_leftImg8bit.png,784,224,1056,336,cargroup
+berlin_000026_000019_leftImg8bit.png,32,288,1152,592,road
+berlin_000026_000019_leftImg8bit.png,0,-16,16,256,rectification border
+berlin_000026_000019_leftImg8bit.png,976,352,1184,480,sidewalk
+berlin_000026_000019_leftImg8bit.png,224,480,1184,576,ego vehicle
+berlin_000026_000019_leftImg8bit.png,16,0,352,144,vegetation
+berlin_000026_000019_leftImg8bit.png,528,0,1024,208,vegetation
+berlin_000026_000019_leftImg8bit.png,400,0,640,224,vegetation
+berlin_000027_000019_leftImg8bit.png,944,112,960,224,pole
+berlin_000027_000019_leftImg8bit.png,208,128,224,224,pole
+berlin_000027_000019_leftImg8bit.png,896,144,912,224,pole
+berlin_000027_000019_leftImg8bit.png,160,224,400,304,cargroup
+berlin_000027_000019_leftImg8bit.png,832,240,1184,352,cargroup
+berlin_000027_000019_leftImg8bit.png,688,224,992,320,cargroup
+berlin_000027_000019_leftImg8bit.png,192,496,1216,592,ego vehicle
+berlin_000027_000019_leftImg8bit.png,16,0,608,176,vegetation
+berlin_000027_000019_leftImg8bit.png,464,0,1056,208,vegetation
+berlin_000027_000019_leftImg8bit.png,16,272,1168,592,road
+berlin_000028_000019_leftImg8bit.png,1088,192,1104,272,pole
+berlin_000028_000019_leftImg8bit.png,848,208,1104,304,cargroup
+berlin_000028_000019_leftImg8bit.png,912,240,1168,336,cargroup
+berlin_000028_000019_leftImg8bit.png,320,240,592,304,cargroup
+berlin_000028_000019_leftImg8bit.png,192,496,1264,592,ego vehicle
+berlin_000028_000019_leftImg8bit.png,192,0,1216,208,vegetation
+berlin_000028_000019_leftImg8bit.png,0,0,320,192,vegetation
+berlin_000028_000019_leftImg8bit.png,32,0,576,208,vegetation
+berlin_000028_000019_leftImg8bit.png,288,0,624,208,vegetation
+berlin_000028_000019_leftImg8bit.png,48,288,1200,592,road
+berlin_000029_000019_leftImg8bit.png,416,16,720,240,building
+berlin_000029_000019_leftImg8bit.png,384,192,400,224,traffic light
+berlin_000029_000019_leftImg8bit.png,112,208,128,256,pole
+berlin_000029_000019_leftImg8bit.png,896,240,912,304,pole
+berlin_000029_000019_leftImg8bit.png,672,272,688,336,pole
+berlin_000029_000019_leftImg8bit.png,48,320,1216,592,road
+berlin_000029_000019_leftImg8bit.png,208,496,1152,592,ego vehicle
+berlin_000029_000019_leftImg8bit.png,-16,0,416,224,vegetation
+berlin_000029_000019_leftImg8bit.png,752,0,1264,192,vegetation
+berlin_000030_000019_leftImg8bit.png,0,0,288,208,building
+berlin_000030_000019_leftImg8bit.png,576,48,656,144,sky
+berlin_000030_000019_leftImg8bit.png,304,112,320,192,pole
+berlin_000030_000019_leftImg8bit.png,816,224,1184,464,cargroup
+berlin_000030_000019_leftImg8bit.png,80,224,384,336,cargroup
+berlin_000030_000019_leftImg8bit.png,656,208,1104,400,cargroup
+berlin_000030_000019_leftImg8bit.png,624,224,880,304,cargroup
+berlin_000030_000019_leftImg8bit.png,448,176,704,320,cargroup
+berlin_000030_000019_leftImg8bit.png,16,304,1120,592,road
+berlin_000030_000019_leftImg8bit.png,224,496,1200,592,ego vehicle
+berlin_000030_000019_leftImg8bit.png,272,0,560,192,vegetation
+berlin_000030_000019_leftImg8bit.png,592,0,1088,192,vegetation
+berlin_000030_000019_leftImg8bit.png,624,0,880,208,vegetation
+berlin_000031_000019_leftImg8bit.png,16,0,240,240,building
+berlin_000031_000019_leftImg8bit.png,576,208,592,256,pole
+berlin_000031_000019_leftImg8bit.png,224,192,240,304,pole
+berlin_000031_000019_leftImg8bit.png,848,160,864,224,pole
+berlin_000031_000019_leftImg8bit.png,704,256,928,320,cargroup
+berlin_000031_000019_leftImg8bit.png,0,336,1184,576,road
+berlin_000031_000019_leftImg8bit.png,224,496,1184,592,ego vehicle
+berlin_000031_000019_leftImg8bit.png,816,0,1136,80,vegetation
+berlin_000032_000019_leftImg8bit.png,-16,0,464,192,building
+berlin_000032_000019_leftImg8bit.png,496,240,704,384,car
+berlin_000032_000019_leftImg8bit.png,448,0,704,144,sky
+berlin_000032_000019_leftImg8bit.png,1008,208,1024,240,traffic sign
+berlin_000032_000019_leftImg8bit.png,880,80,896,160,pole
+berlin_000032_000019_leftImg8bit.png,0,-16,16,256,rectification border
+berlin_000032_000019_leftImg8bit.png,848,384,1168,576,sidewalk
+berlin_000032_000019_leftImg8bit.png,192,496,1152,592,ego vehicle
+berlin_000032_000019_leftImg8bit.png,-96,352,1040,592,road
+berlin_000033_000019_leftImg8bit.png,1008,96,1024,176,pole
+berlin_000033_000019_leftImg8bit.png,80,208,96,256,pole
+berlin_000033_000019_leftImg8bit.png,1008,0,1024,256,pole
+berlin_000033_000019_leftImg8bit.png,416,240,656,352,cargroup
+berlin_000033_000019_leftImg8bit.png,288,496,1232,592,ego vehicle
+berlin_000033_000019_leftImg8bit.png,832,48,992,160,vegetation
+berlin_000033_000019_leftImg8bit.png,1024,64,1184,208,vegetation
+berlin_000033_000019_leftImg8bit.png,688,96,816,208,vegetation
+berlin_000033_000019_leftImg8bit.png,160,304,1184,576,road
+berlin_000034_000019_leftImg8bit.png,480,0,944,224,building
+berlin_000034_000019_leftImg8bit.png,0,0,992,224,building
+berlin_000034_000019_leftImg8bit.png,1088,0,1168,64,sky
+berlin_000034_000019_leftImg8bit.png,912,16,1024,64,sky
+berlin_000034_000019_leftImg8bit.png,720,112,752,144,traffic sign
+berlin_000034_000019_leftImg8bit.png,64,304,1232,576,road
+berlin_000034_000019_leftImg8bit.png,240,496,1216,592,ego vehicle
+berlin_000034_000019_leftImg8bit.png,1088,48,1184,240,vegetation
+berlin_000035_000019_leftImg8bit.png,736,16,864,96,building
+berlin_000035_000019_leftImg8bit.png,672,0,896,96,building
+berlin_000035_000019_leftImg8bit.png,736,256,784,288,car
+berlin_000035_000019_leftImg8bit.png,128,192,144,256,pole
+berlin_000035_000019_leftImg8bit.png,80,256,240,352,cargroup
+berlin_000035_000019_leftImg8bit.png,128,304,1232,592,road
+berlin_000035_000019_leftImg8bit.png,0,352,416,560,sidewalk
+berlin_000035_000019_leftImg8bit.png,240,496,1232,592,ego vehicle
+berlin_000035_000019_leftImg8bit.png,-16,0,336,240,vegetation
+berlin_000035_000019_leftImg8bit.png,720,112,1008,224,vegetation
+berlin_000035_000019_leftImg8bit.png,912,0,1184,112,vegetation
+berlin_000036_000019_leftImg8bit.png,320,16,768,160,sky
+berlin_000036_000019_leftImg8bit.png,928,176,944,208,traffic sign
+berlin_000036_000019_leftImg8bit.png,928,176,944,192,traffic sign
+berlin_000036_000019_leftImg8bit.png,640,256,976,336,cargroup
+berlin_000036_000019_leftImg8bit.png,848,240,1168,352,cargroup
+berlin_000036_000019_leftImg8bit.png,128,304,1232,576,road
+berlin_000036_000019_leftImg8bit.png,16,352,416,560,sidewalk
+berlin_000036_000019_leftImg8bit.png,64,400,320,560,sidewalk
+berlin_000036_000019_leftImg8bit.png,224,496,1184,592,ego vehicle
+berlin_000036_000019_leftImg8bit.png,624,0,1216,208,vegetation
+berlin_000036_000019_leftImg8bit.png,64,32,448,240,vegetation
+berlin_000036_000019_leftImg8bit.png,0,16,48,128,vegetation
+berlin_000037_000019_leftImg8bit.png,960,0,1200,208,building
+berlin_000037_000019_leftImg8bit.png,0,16,112,128,building
+berlin_000037_000019_leftImg8bit.png,320,0,624,128,sky
+berlin_000037_000019_leftImg8bit.png,912,192,928,208,traffic sign
+berlin_000037_000019_leftImg8bit.png,912,176,928,192,traffic sign
+berlin_000037_000019_leftImg8bit.png,896,16,912,144,pole
+berlin_000037_000019_leftImg8bit.png,112,320,1232,592,road
+berlin_000037_000019_leftImg8bit.png,16,384,368,576,sidewalk
+berlin_000037_000019_leftImg8bit.png,192,496,1200,592,ego vehicle
+berlin_000037_000019_leftImg8bit.png,352,128,448,240,vegetation
+berlin_000037_000019_leftImg8bit.png,608,0,896,224,vegetation
+berlin_000037_000019_leftImg8bit.png,0,144,96,240,vegetation
+berlin_000038_000019_leftImg8bit.png,16,224,208,352,car
+berlin_000038_000019_leftImg8bit.png,624,208,640,272,pole
+berlin_000038_000019_leftImg8bit.png,224,160,240,208,pole
+berlin_000038_000019_leftImg8bit.png,224,176,240,288,pole
+berlin_000038_000019_leftImg8bit.png,272,496,1216,592,ego vehicle
+berlin_000038_000019_leftImg8bit.png,32,304,1200,576,road
+berlin_000039_000019_leftImg8bit.png,784,16,1248,208,building
+berlin_000039_000019_leftImg8bit.png,960,16,1184,224,building
+berlin_000039_000019_leftImg8bit.png,0,272,64,320,car
+berlin_000039_000019_leftImg8bit.png,640,256,672,288,car
+berlin_000039_000019_leftImg8bit.png,384,0,544,112,sky
+berlin_000039_000019_leftImg8bit.png,992,192,1008,208,traffic sign
+berlin_000039_000019_leftImg8bit.png,1104,144,1120,208,pole
+berlin_000039_000019_leftImg8bit.png,992,208,1008,240,pole
+berlin_000039_000019_leftImg8bit.png,912,240,1184,336,cargroup
+berlin_000039_000019_leftImg8bit.png,784,256,864,288,cargroup
+berlin_000039_000019_leftImg8bit.png,32,288,1200,592,road
+berlin_000039_000019_leftImg8bit.png,224,496,1184,592,ego vehicle
+berlin_000039_000019_leftImg8bit.png,128,0,352,160,vegetation
+berlin_000039_000019_leftImg8bit.png,80,16,496,240,vegetation
+berlin_000039_000019_leftImg8bit.png,736,160,800,224,vegetation
+berlin_000039_000019_leftImg8bit.png,576,176,608,208,vegetation
+berlin_000040_000019_leftImg8bit.png,768,176,784,240,pole
+berlin_000040_000019_leftImg8bit.png,112,224,448,352,cargroup
+berlin_000040_000019_leftImg8bit.png,48,304,1200,592,road
+berlin_000040_000019_leftImg8bit.png,864,304,1184,384,sidewalk
+berlin_000040_000019_leftImg8bit.png,240,496,1184,592,ego vehicle
+berlin_000040_000019_leftImg8bit.png,32,0,496,192,vegetation
+berlin_000040_000019_leftImg8bit.png,848,0,1168,112,vegetation
+berlin_000040_000019_leftImg8bit.png,544,16,816,208,vegetation
+berlin_000040_000019_leftImg8bit.png,80,160,128,240,vegetation
+berlin_000040_000019_leftImg8bit.png,672,0,1120,128,vegetation
+berlin_000041_000019_leftImg8bit.png,1072,16,1152,224,building
+berlin_000041_000019_leftImg8bit.png,1056,96,1168,208,building
+berlin_000041_000019_leftImg8bit.png,736,0,832,32,sky
+berlin_000041_000019_leftImg8bit.png,944,176,960,192,traffic sign
+berlin_000041_000019_leftImg8bit.png,944,192,960,208,traffic sign
+berlin_000041_000019_leftImg8bit.png,1168,160,1184,288,pole
+berlin_000041_000019_leftImg8bit.png,32,256,240,320,cargroup
+berlin_000041_000019_leftImg8bit.png,864,208,976,272,cargroup
+berlin_000041_000019_leftImg8bit.png,96,288,1184,592,road
+berlin_000041_000019_leftImg8bit.png,224,496,1232,592,ego vehicle
+berlin_000041_000019_leftImg8bit.png,16,0,560,192,vegetation
+berlin_000041_000019_leftImg8bit.png,848,0,1104,160,vegetation
+berlin_000041_000019_leftImg8bit.png,0,16,176,160,vegetation
+berlin_000041_000019_leftImg8bit.png,16,32,320,176,vegetation
+berlin_000042_000019_leftImg8bit.png,448,16,720,208,building
+berlin_000042_000019_leftImg8bit.png,0,48,128,192,building
+berlin_000042_000019_leftImg8bit.png,0,0,112,48,sky
+berlin_000042_000019_leftImg8bit.png,304,0,432,128,sky
+berlin_000042_000019_leftImg8bit.png,1040,224,1056,320,pole
+berlin_000042_000019_leftImg8bit.png,240,224,496,352,cargroup
+berlin_000042_000019_leftImg8bit.png,64,208,480,416,cargroup
+berlin_000042_000019_leftImg8bit.png,96,288,1232,592,road
+berlin_000042_000019_leftImg8bit.png,240,496,1232,592,ego vehicle
+berlin_000042_000019_leftImg8bit.png,160,176,256,240,vegetation
+berlin_000042_000019_leftImg8bit.png,704,0,912,192,vegetation
+berlin_000043_000019_leftImg8bit.png,544,256,656,336,car
+berlin_000043_000019_leftImg8bit.png,336,208,352,304,pole
+berlin_000043_000019_leftImg8bit.png,1088,208,1104,256,pole
+berlin_000043_000019_leftImg8bit.png,224,496,1216,608,ego vehicle
+berlin_000043_000019_leftImg8bit.png,1072,192,1088,208,traffic sign
+berlin_000043_000019_leftImg8bit.png,1072,176,1088,208,traffic sign
+berlin_000043_000019_leftImg8bit.png,64,304,1248,592,road
+berlin_000044_000019_leftImg8bit.png,352,0,560,80,sky
+berlin_000044_000019_leftImg8bit.png,224,496,1216,592,ego vehicle
+berlin_000044_000019_leftImg8bit.png,544,0,1008,224,vegetation
+berlin_000044_000019_leftImg8bit.png,0,16,464,240,vegetation
+berlin_000044_000019_leftImg8bit.png,192,0,944,240,vegetation
+berlin_000044_000019_leftImg8bit.png,-48,80,560,272,vegetation
+berlin_000044_000019_leftImg8bit.png,32,304,1184,592,road
+berlin_000045_000019_leftImg8bit.png,864,0,1104,240,building
+berlin_000045_000019_leftImg8bit.png,288,16,368,144,sky
+berlin_000045_000019_leftImg8bit.png,16,208,496,416,cargroup
+berlin_000045_000019_leftImg8bit.png,48,272,1152,576,road
+berlin_000045_000019_leftImg8bit.png,864,288,1120,368,sidewalk
+berlin_000045_000019_leftImg8bit.png,240,496,1232,592,ego vehicle
+berlin_000045_000019_leftImg8bit.png,0,0,160,160,vegetation
+berlin_000046_000019_leftImg8bit.png,144,0,208,48,sky
+berlin_000046_000019_leftImg8bit.png,992,0,1184,64,sky
+berlin_000046_000019_leftImg8bit.png,544,0,640,64,sky
+berlin_000046_000019_leftImg8bit.png,48,16,128,80,sky
+berlin_000046_000019_leftImg8bit.png,48,0,112,64,sky
+berlin_000046_000019_leftImg8bit.png,224,0,240,272,pole
+berlin_000046_000019_leftImg8bit.png,880,128,896,208,pole
+berlin_000046_000019_leftImg8bit.png,176,240,544,368,cargroup
+berlin_000046_000019_leftImg8bit.png,0,320,1216,592,road
+berlin_000046_000019_leftImg8bit.png,208,496,1200,608,ego vehicle
+berlin_000046_000019_leftImg8bit.png,144,80,208,240,vegetation
+berlin_000046_000019_leftImg8bit.png,944,32,1184,256,vegetation
+berlin_000046_000019_leftImg8bit.png,256,112,352,240,vegetation
+berlin_000046_000019_leftImg8bit.png,48,96,112,256,vegetation
+berlin_000046_000019_leftImg8bit.png,160,80,224,192,vegetation
+berlin_000046_000019_leftImg8bit.png,672,176,736,208,vegetation
+berlin_000047_000019_leftImg8bit.png,256,16,976,192,sky
+berlin_000047_000019_leftImg8bit.png,1168,224,1184,240,traffic sign
+berlin_000047_000019_leftImg8bit.png,928,240,1168,304,cargroup
+berlin_000047_000019_leftImg8bit.png,32,208,480,384,cargroup
+berlin_000047_000019_leftImg8bit.png,192,224,560,336,cargroup
+berlin_000047_000019_leftImg8bit.png,0,80,224,192,vegetation
+berlin_000047_000019_leftImg8bit.png,1008,80,1200,208,vegetation
+berlin_000047_000019_leftImg8bit.png,704,144,976,256,vegetation
+berlin_000047_000019_leftImg8bit.png,240,496,1232,592,ego vehicle
+berlin_000047_000019_leftImg8bit.png,112,272,1232,576,road
+berlin_000048_000019_leftImg8bit.png,272,0,752,144,sky
+berlin_000048_000019_leftImg8bit.png,16,0,240,112,sky
+berlin_000048_000019_leftImg8bit.png,208,224,448,320,cargroup
+berlin_000048_000019_leftImg8bit.png,0,224,208,304,cargroup
+berlin_000048_000019_leftImg8bit.png,720,224,976,304,cargroup
+berlin_000048_000019_leftImg8bit.png,848,224,1200,368,cargroup
+berlin_000048_000019_leftImg8bit.png,96,224,368,320,cargroup
+berlin_000048_000019_leftImg8bit.png,176,496,1232,592,ego vehicle
+berlin_000048_000019_leftImg8bit.png,0,64,128,208,vegetation
+berlin_000048_000019_leftImg8bit.png,928,0,1168,192,vegetation
+berlin_000048_000019_leftImg8bit.png,720,0,1248,208,vegetation
+berlin_000048_000019_leftImg8bit.png,416,192,464,224,vegetation
+berlin_000048_000019_leftImg8bit.png,0,288,1168,592,road
+berlin_000049_000019_leftImg8bit.png,240,0,736,160,sky
+berlin_000049_000019_leftImg8bit.png,960,112,976,224,pole
+berlin_000049_000019_leftImg8bit.png,752,176,768,240,pole
+berlin_000049_000019_leftImg8bit.png,736,224,1184,448,cargroup
+berlin_000049_000019_leftImg8bit.png,16,224,304,336,cargroup
+berlin_000049_000019_leftImg8bit.png,16,208,272,448,cargroup
+berlin_000049_000019_leftImg8bit.png,48,272,1120,576,road
+berlin_000049_000019_leftImg8bit.png,224,480,1184,576,ego vehicle
+berlin_000049_000019_leftImg8bit.png,656,0,992,224,vegetation
+berlin_000049_000019_leftImg8bit.png,912,16,1168,224,vegetation
+berlin_000049_000019_leftImg8bit.png,16,112,384,240,vegetation
+berlin_000050_000019_leftImg8bit.png,304,16,784,176,sky
+berlin_000050_000019_leftImg8bit.png,848,208,864,224,traffic sign
+berlin_000050_000019_leftImg8bit.png,1136,160,1152,288,pole
+berlin_000050_000019_leftImg8bit.png,400,208,416,272,pole
+berlin_000050_000019_leftImg8bit.png,1056,224,1072,304,pole
+berlin_000050_000019_leftImg8bit.png,992,176,1008,288,pole
+berlin_000050_000019_leftImg8bit.png,848,224,864,272,pole
+berlin_000050_000019_leftImg8bit.png,400,224,416,304,pole
+berlin_000050_000019_leftImg8bit.png,16,256,224,288,cargroup
+berlin_000050_000019_leftImg8bit.png,32,304,1216,592,road
+berlin_000050_000019_leftImg8bit.png,240,496,1232,592,ego vehicle
+berlin_000050_000019_leftImg8bit.png,672,0,1200,240,vegetation
+berlin_000050_000019_leftImg8bit.png,0,32,256,240,vegetation
+berlin_000050_000019_leftImg8bit.png,16,32,464,272,vegetation
+berlin_000050_000019_leftImg8bit.png,400,128,544,240,vegetation
+berlin_000051_000019_leftImg8bit.png,400,16,592,176,sky
+berlin_000051_000019_leftImg8bit.png,1088,128,1104,256,pole
+berlin_000051_000019_leftImg8bit.png,832,224,1056,304,cargroup
+berlin_000051_000019_leftImg8bit.png,48,288,1264,592,road
+berlin_000051_000019_leftImg8bit.png,224,496,1216,592,ego vehicle
+berlin_000051_000019_leftImg8bit.png,0,16,464,256,vegetation
+berlin_000051_000019_leftImg8bit.png,704,0,1136,224,vegetation
+berlin_000052_000019_leftImg8bit.png,448,192,464,208,traffic sign
+berlin_000052_000019_leftImg8bit.png,272,496,1184,592,ego vehicle
+berlin_000052_000019_leftImg8bit.png,-48,16,1008,240,vegetation
+berlin_000052_000019_leftImg8bit.png,0,32,480,240,vegetation
+berlin_000052_000019_leftImg8bit.png,656,16,1216,224,vegetation
+berlin_000052_000019_leftImg8bit.png,64,304,1232,576,road
+berlin_000053_000019_leftImg8bit.png,320,0,624,176,sky
+berlin_000053_000019_leftImg8bit.png,240,496,1232,592,ego vehicle
+berlin_000053_000019_leftImg8bit.png,0,16,512,224,vegetation
+berlin_000053_000019_leftImg8bit.png,608,0,1216,224,vegetation
+berlin_000053_000019_leftImg8bit.png,624,0,928,208,vegetation
+berlin_000053_000019_leftImg8bit.png,64,288,1136,592,road
+berlin_000054_000019_leftImg8bit.png,400,0,720,176,sky
+berlin_000054_000019_leftImg8bit.png,1088,112,1104,240,pole
+berlin_000054_000019_leftImg8bit.png,800,224,1072,288,cargroup
+berlin_000054_000019_leftImg8bit.png,112,272,1248,576,road
+berlin_000054_000019_leftImg8bit.png,240,496,1232,592,ego vehicle
+berlin_000054_000019_leftImg8bit.png,0,16,512,256,vegetation
+berlin_000054_000019_leftImg8bit.png,688,0,1184,208,vegetation
+berlin_000054_000019_leftImg8bit.png,528,208,560,240,vegetation
+berlin_000055_000019_leftImg8bit.png,1104,240,1120,288,pole
+berlin_000055_000019_leftImg8bit.png,1120,144,1136,176,traffic sign
+berlin_000055_000019_leftImg8bit.png,1120,160,1136,176,traffic sign
+berlin_000055_000019_leftImg8bit.png,272,496,1200,592,ego vehicle
+berlin_000055_000019_leftImg8bit.png,0,80,208,240,vegetation
+berlin_000055_000019_leftImg8bit.png,832,0,1088,240,vegetation
+berlin_000055_000019_leftImg8bit.png,1136,0,1184,144,vegetation
+berlin_000055_000019_leftImg8bit.png,304,144,400,240,vegetation
+berlin_000055_000019_leftImg8bit.png,224,160,288,240,vegetation
+berlin_000055_000019_leftImg8bit.png,640,16,1104,256,vegetation
+berlin_000055_000019_leftImg8bit.png,400,176,544,240,vegetation
+berlin_000055_000019_leftImg8bit.png,112,288,1216,592,road
+berlin_000056_000019_leftImg8bit.png,288,0,896,112,sky
+berlin_000056_000019_leftImg8bit.png,240,496,1232,592,ego vehicle
+berlin_000056_000019_leftImg8bit.png,16,16,384,208,vegetation
+berlin_000056_000019_leftImg8bit.png,800,0,1056,192,vegetation
+berlin_000056_000019_leftImg8bit.png,1072,0,1184,128,vegetation
+berlin_000056_000019_leftImg8bit.png,128,272,1296,576,road
+berlin_000057_000019_leftImg8bit.png,640,32,752,176,sky
+berlin_000057_000019_leftImg8bit.png,1008,0,1184,64,sky
+berlin_000057_000019_leftImg8bit.png,176,0,352,80,sky
+berlin_000057_000019_leftImg8bit.png,768,64,848,208,sky
+berlin_000057_000019_leftImg8bit.png,240,496,1200,592,ego vehicle
+berlin_000057_000019_leftImg8bit.png,16,304,1248,592,road
+berlin_000058_000019_leftImg8bit.png,320,0,448,192,building
+berlin_000058_000019_leftImg8bit.png,240,208,256,224,traffic sign
+berlin_000058_000019_leftImg8bit.png,240,192,256,208,traffic sign
+berlin_000058_000019_leftImg8bit.png,256,496,1200,592,ego vehicle
+berlin_000058_000019_leftImg8bit.png,432,48,560,208,vegetation
+berlin_000058_000019_leftImg8bit.png,1056,80,1168,208,vegetation
+berlin_000058_000019_leftImg8bit.png,656,112,944,224,vegetation
+berlin_000058_000019_leftImg8bit.png,16,112,304,224,vegetation
+berlin_000058_000019_leftImg8bit.png,48,304,1184,592,road
+berlin_000059_000019_leftImg8bit.png,784,128,800,160,traffic sign
+berlin_000059_000019_leftImg8bit.png,320,208,336,224,traffic sign
+berlin_000059_000019_leftImg8bit.png,128,208,144,272,pole
+berlin_000059_000019_leftImg8bit.png,800,208,816,304,pole
+berlin_000059_000019_leftImg8bit.png,48,272,1216,576,road
+berlin_000059_000019_leftImg8bit.png,848,304,1152,416,sidewalk
+berlin_000059_000019_leftImg8bit.png,288,496,1200,592,ego vehicle
+berlin_000059_000019_leftImg8bit.png,672,0,1200,224,vegetation
+berlin_000059_000019_leftImg8bit.png,0,16,240,224,vegetation
+berlin_000059_000019_leftImg8bit.png,688,0,928,224,vegetation
+berlin_000059_000019_leftImg8bit.png,880,0,1168,176,vegetation
+berlin_000060_000019_leftImg8bit.png,944,0,1200,128,sky
+berlin_000060_000019_leftImg8bit.png,896,128,912,144,traffic sign
+berlin_000060_000019_leftImg8bit.png,864,144,880,224,pole
+berlin_000060_000019_leftImg8bit.png,400,176,416,288,pole
+berlin_000060_000019_leftImg8bit.png,0,416,240,560,sidewalk
+berlin_000060_000019_leftImg8bit.png,16,368,336,576,sidewalk
+berlin_000060_000019_leftImg8bit.png,224,496,1216,592,ego vehicle
+berlin_000060_000019_leftImg8bit.png,64,304,1216,576,road
+berlin_000061_000019_leftImg8bit.png,1008,16,1200,240,building
+berlin_000061_000019_leftImg8bit.png,-80,-32,1184,688,out of roi
+berlin_000061_000019_leftImg8bit.png,272,496,1200,592,ego vehicle
+berlin_000061_000019_leftImg8bit.png,128,0,768,208,vegetation
+berlin_000061_000019_leftImg8bit.png,0,128,112,240,vegetation
+berlin_000061_000019_leftImg8bit.png,0,32,96,288,vegetation
+berlin_000061_000019_leftImg8bit.png,48,16,576,240,vegetation
+berlin_000061_000019_leftImg8bit.png,16,336,1168,576,road
+berlin_000062_000019_leftImg8bit.png,288,0,928,128,sky
+berlin_000062_000019_leftImg8bit.png,912,176,928,304,pole
+berlin_000062_000019_leftImg8bit.png,1008,0,1168,240,vegetation
+berlin_000062_000019_leftImg8bit.png,928,16,1184,208,vegetation
+berlin_000062_000019_leftImg8bit.png,1040,48,1200,224,vegetation
+berlin_000062_000019_leftImg8bit.png,80,16,416,160,vegetation
+berlin_000062_000019_leftImg8bit.png,800,320,1168,544,sidewalk
+berlin_000062_000019_leftImg8bit.png,288,496,1200,592,ego vehicle
+berlin_000062_000019_leftImg8bit.png,16,288,1152,592,road
+berlin_000063_000019_leftImg8bit.png,272,208,288,288,pole
+berlin_000063_000019_leftImg8bit.png,960,176,976,272,pole
+berlin_000063_000019_leftImg8bit.png,896,144,912,192,pole
+berlin_000063_000019_leftImg8bit.png,896,192,912,288,pole
+berlin_000063_000019_leftImg8bit.png,832,352,1184,528,sidewalk
+berlin_000063_000019_leftImg8bit.png,240,496,1184,592,ego vehicle
+berlin_000063_000019_leftImg8bit.png,0,16,304,272,vegetation
+berlin_000063_000019_leftImg8bit.png,912,32,1008,208,vegetation
+berlin_000063_000019_leftImg8bit.png,1040,16,1184,240,vegetation
+berlin_000063_000019_leftImg8bit.png,16,48,512,288,vegetation
+berlin_000063_000019_leftImg8bit.png,576,80,832,240,vegetation
+berlin_000063_000019_leftImg8bit.png,-32,304,1120,576,road
+berlin_000064_000019_leftImg8bit.png,384,224,400,272,pole
+berlin_000064_000019_leftImg8bit.png,432,208,448,272,pole
+berlin_000064_000019_leftImg8bit.png,224,496,1232,592,ego vehicle
+berlin_000064_000019_leftImg8bit.png,768,160,896,208,vegetation
+berlin_000064_000019_leftImg8bit.png,272,128,416,224,vegetation
+berlin_000064_000019_leftImg8bit.png,32,96,288,224,vegetation
+berlin_000064_000019_leftImg8bit.png,752,144,864,192,vegetation
+berlin_000064_000019_leftImg8bit.png,912,96,1200,208,vegetation
+berlin_000064_000019_leftImg8bit.png,48,288,1168,592,road
