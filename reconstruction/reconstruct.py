@@ -1,0 +1,200 @@
+import numpy as np
+import VoxelWorld
+
+# Dimensions of world in meters
+LENGTH = 10
+WIDTH = 10
+HEIGHT = 10
+
+# Side length of cubic voxel (resolution)
+RES = 1
+
+# Number of object classes we are working with here
+NUM_CLASSES = 10
+
+# Camera properties such as focal length, max width and height in frame
+# at focal length in front of camera, and frame rate of camera
+CAMERA_FL = 10
+CAMERA_WIDTH = 600
+CAMERA_HEIGHT = 800
+FRAME_RATE = 30  # 30 fps
+
+# Frame properties
+FRAME_WIDTH = 600
+FRAME_HEIGHT = 800
+
+
+world = VoxelWorld(int(LENGTH/RES), int(WIDTH/RES), int(HEIGHT/RES), NUM_OBJECTS)
+
+
+def get_bboxes(img):
+    # TODO(suraj): use model to return bounding boxes with classifications
+    # img is rgb image
+    # class_bboxes = list of [object class, bbox, conf]
+    #   bbox = [top left pt, width, height]
+    return class_bboxes
+
+
+def get_voxel_object_value(conf, dist):
+    # TODO(anshul): make some stupid heuristic based on confidence and distance
+    # can easily modify once we put in depth map (gaussian around dist)
+    value = 1.0
+    return value
+
+
+def get_3d_point(dist_unit, vref_unit, dc, sinc, cosc, framec):
+    #TODO(anshul): solve system of equations and write solution here
+    [u, v, w] = vref_unit
+    [q, r, s] = dist_unit
+
+    crossterm = s*s*(u*u+v*v) + q*q*(v*v+w*w) +r*r*(u*u+w*w) - 2*q*s*u*w - 2*q*r*u*v - 2*r*s*v*w
+
+    xdet = dc**2 * (s*v-r*w)**2 * crossterm
+    xnum = cosc*dc*(u*(r*r+s*s) - q*(r*v+s*w))
+
+    ydet = dc**2 * (s*u-q*w)**2 * crossterm
+    ynum = cosc*dc*(v*(q*q+s*s) - r*(q*u+s*w))
+
+    zdet = dc**2 * (r*u-q*v)**2 * crossterm
+    znum = cosc*dc*(w*(r*r+q*q) - s*(q*u+r*v))
+
+    sol1 = [(xnum + np.sqrt(xdet)) / crossterm,
+            (ynum + np.sqrt(ydet)) / crossterm,
+            (znum + np.sqrt(zdet)) / crossterm]
+    sol2 = [(xnum - np.sqrt(xdet)) / crossterm,
+            (ynum - np.sqrt(ydet)) / crossterm,
+            (znum - np.sqrt(zdet)) / crossterm]
+
+    # If cross product between vref and sol vector is in same direction as
+    # dist_unit, then sinc should be negative
+    crossp1 = np.cross(vref_unit, sol1)
+    crossp2 = np.cross(vref_unit, sol2)
+    if sinc >= 0:
+        if np.sum(np.dot(crossp1, dist_unit) >= 0.0) == 0:
+            return np.add(sol1, framec)
+        elif np.sum(np.dot(crossp2, dist_unit) >= 0.0) == 0:
+            return np.add(sol2, framec)
+        else:
+            print('Well that didnt work awks')
+            assert(False)
+    else:
+        if np.sum(np.dot(crossp1, dist_unit) >= 0.0) == 3:
+            return np.add(sol1, framec)
+        elif np.sum(np.dot(crossp2, dist_unit) >= 0.0) == 3:
+            return np.add(sol2, framec)
+        else:
+            print('Well that didnt work awks')
+            assert(False)
+
+    return [0,0,0]
+
+
+def rotate_point_around_vector(pt, vstart, dist_unit, delt):
+    [x, y, z] = pt
+    [a, b, c] = vstart
+    [u, v, w] = dist_unit
+    x_new = (a * (v*v + w*w) -
+             u * (b*v + c*w - u*x - v*y - w*z) * (1 - np.cos(delt)) +
+             x * cos(delt) +
+             (-c*v + b*w - w*y + v*z) * np.sin(delt))
+    y_new = (b * (u*u + w*w) -
+             v * (a*u + c*w - u*x - v*y - w*z) * (1 - np.cos(delt)) +
+             y * cos(delt) +
+             (c*u - a*w + w*x - u*z) * np.sin(delt))
+    z_new = (c * (u*u + v*v) -
+             w * (a*u + b*v - u*x - v*y - w*z) * (1 - np.cos(delt)) +
+             z * cos(delt) +
+             (-b*u + a*v - v*x + u*y) * np.sin(delt))
+    return np.asarray([x_new, y_new, z_new])
+
+
+def get_voxels_at_distance(pos_orient, bbox, dist):
+    # TODO(anshul): lots of math
+    # essentially takes position and orientation of camera, the bbox within
+    # a frame of FRAME_WIDTH x FRAME_HEIGHT dimensions, and gives values
+    # of vbox cell assuming object is actually dist distance away
+    [xr, yr, zr, thet, phi, delt] = pos_orient
+    [xb, yb, wb, hb] = bbox
+    framec = [xr + dist * np.cos(thet) * np.cos(phi),
+              yr + dist * np.sin(thet) * np.cos(phi),
+              zr + dist * np.sin(phi)]
+    dist_unit = [np.cos(thet) * np.cos(phi), np.sin(thet) * np.cos(phi), np.sin(phi)]
+    vref_unit = np.cross(dist_unit, [0, 0, 1])
+
+    width_ratio = CAMERA_WIDTH * dist / CAMERA_FL
+    height_ratio = CAMERA_HEIGHT * dist / CAMERA_FL
+
+    tl_dc = np.sqrt(np.sum(np.square(
+                [width_ratio * 0.5 - xb * width_ratio/FRAME_WIDTH,
+                 height_ratio * 0.5 - yb * height_ratio/FRAME_HEIGHT])))
+    tl_cosc = (width_ratio * 0.5 - xb * width_ratio/FRAME_WIDTH) / tl_dc
+    tl_sinc = (height_ratio * 0.5 - yb * height_ratio/FRAME_HEIGHT) / tl_dc
+    tl_3d = get_3d_point(dist_unit, vref_unit, tl_dc, tl_sinc, tl_cosc, framec)
+    rotated_tl_3d = rotate_point_around_vector(tl_3d, framec, dist_unit, delt)
+
+    tr_dc = np.sqrt(np.sum(np.square(
+                [width_ratio * 0.5 - (xb + wb) * width_ratio/FRAME_WIDTH,
+                 height_ratio * 0.5 - yb * height_ratio/FRAME_HEIGHT])))
+    tr_cosc = (width_ratio * 0.5 - (xb + wb) * width_ratio/FRAME_WIDTH) / tr_dc
+    tr_sinc = (height_ratio * 0.5 - yb * height_ratio/FRAME_HEIGHT]) / tr_dc
+    tr_3d = get_3d_point(dist_unit, vref_unit, tr_dc, tr_sinc, tr_cosc, framec)
+    rotated_tr_3d = rotate_point_around_vector(tr_3d, framec, dist_unit, delt)
+
+    bl_dc = np.sqrt(np.sum(np.square(
+                [width_ratio * 0.5 - xb * width_ratio/FRAME_WIDTH,
+                 height_ratio * 0.5 - (yb + hb) * height_ratio/FRAME_HEIGHT])))
+    bl_cosc = (width_ratio * 0.5 - xb * width_ratio/FRAME_WIDTH) / bl_dc
+    bl_sinc = (height_ratio * 0.5 - (yb + hb) * height_ratio/FRAME_HEIGHT) / bl_dc
+    bl_3d = get_3d_point(dist_unit, vref_unit, bl_dc, bl_sinc, bl_cosc, framec)
+    rotated_bl_3d = rotate_point_around_vector(bl_3d, framec, dist_unit, delt)
+
+    lenv1 = np.sqrt(np.sum(np.square(np.subtract(rotated_tr_3d, rotated_tl_3d))))
+    lenv2 = np.sqrt(np.sum(np.square(np.subtract(rotated_bl_3d, rotated_tl_3d))))
+
+    vbox_locs = []
+    for i in np.linspace(0, 1, int(2*lenv1/RES)):
+        for j in np.linspace(0, 1, int(2*lenv2/RES)):
+            pt = np.sum(rotated_tl_3d, i*np.subract(rotated_tr_3d, rotated_tl_3d))
+            pt = np.sum(pt, j*np.subract(rotated_bl_3d, rotated_tl_3d))
+            loc = np.floor(pt)
+            if (np.sum(loc >= 0) == 3 and loc[0] < int(LENGTH/RES) and
+                loc[1] < int(WIDTH/RES) and loc[2] < int(HEIGHT/RES)):
+                if loc.tolist() not in vbox_locs:
+                    vbox_locs.append(loc.tolist())
+    return vbox_locs
+
+
+def update_voxel_value_list(vox_vals, new_vox_vals, value):
+    #TODO(anshul): maybe just max function?
+    return vox_vals
+
+
+def process_frame(img, pos_orient):
+    # img is rgb image
+    # pos_orient is a 6 vector (x, y, z, thet, phi, delt)
+    #   thet is from 0 to 2pi in x-y frame with respect to x-axis
+    #   phi is from -pi/2 to pi/2 with respect to x-y plane
+    #   delt is from 0 to 2pi which represents tilt of drone with respect to vref (xy plane)
+
+    class_bboxes = get_bboxes(img)
+    dists = np.linspace(0, 50, int(50.0/RES) + 1)
+
+    vox_vals = []
+
+    for [object_class, bbox, conf] in class_bboxes:
+        for dist in dists:
+            voxels_at_dist = get_voxels_at_distance(pos_orient, bbox, conf)
+            value_at_dist = get_voxel_object_value(conf, dist)
+            vox_vals = update_voxel_value_list(vox_vals, voxels_at_dist, value_at_dist)
+
+        for [vox_loc, val] in vox_vals:
+            world.set_vortex_single(loc, object_class, val)
+
+    return True
+
+
+def process_video(frames, start_pos_orient, odometry):
+    #TODO(anyone): from odometry, get pos_orient vector at each frame
+    #   use FRAME_RATE constant somewhere in this
+    for [frame, pos_orient] in zip(frames, pos_orients):
+        process_frame(frame, pos_orient)
