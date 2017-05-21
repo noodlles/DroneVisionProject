@@ -1,0 +1,8 @@
+prefix=/home/me132/DroneVisionProject/DroneInterface/devel
+
+Name: slamdunk_bebop_joystick
+Description: Description of slamdunk_bebop_joystick
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/me132/DroneVisionProject/DroneInterface/devel/lib 
+Requires: 

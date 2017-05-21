@@ -1,0 +1,2 @@
+gscam:image_proc:slamdunk_ros/slamdunk_bebop_joystick:slamdunk_ros/slamdunk_bebop_visualization:slamdunk_ros/slamdunk_msgs:slamdunk_ros/slamdunk_nodelets:slamdunk_ros/slamdunk_visualization
+-DCATKIN_DEVEL_PREFIX=/home/me132/DroneVisionProject/DroneInterface/devel -DCMAKE_INSTALL_PREFIX=/home/me132/DroneVisionProject/DroneInterface/install -G Unix Makefiles

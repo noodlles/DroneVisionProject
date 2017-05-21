@@ -1,0 +1,8 @@
+prefix=/home/me132/DroneVisionProject/DroneInterface/install
+
+Name: slamdunk_bebop_visualization
+Description: Description of slamdunk_bebop_visualization
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/me132/DroneVisionProject/DroneInterface/install/lib 
+Requires: roscpp rviz

@@ -1,0 +1,21 @@
+(cl:defpackage slamdunk_msgs-msg
+  (:use )
+  (:export
+   "<SERVICETRIGGER>"
+   "SERVICETRIGGER"
+   "<VIDEOMODES>"
+   "VIDEOMODES"
+   "<QUALITY>"
+   "QUALITY"
+   "<STREAMINGTYPES>"
+   "STREAMINGTYPES"
+   "<RECONFIGURELEVELS>"
+   "RECONFIGURELEVELS"
+   "<BOOLSTAMPED>"
+   "BOOLSTAMPED"
+   "<QUALITYSTAMPED>"
+   "QUALITYSTAMPED"
+   "<VIDEOSOURCES>"
+   "VIDEOSOURCES"
+  ))
+

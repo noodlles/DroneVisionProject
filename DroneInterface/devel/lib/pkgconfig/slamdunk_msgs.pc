@@ -1,0 +1,8 @@
+prefix=/home/me132/DroneVisionProject/DroneInterface/devel
+
+Name: slamdunk_msgs
+Description: Description of slamdunk_msgs
+Version: 0.0.0
+Cflags: -I/home/me132/DroneVisionProject/DroneInterface/devel/include
+Libs: -L/home/me132/DroneVisionProject/DroneInterface/devel/lib 
+Requires: message_runtime std_msgs
