@@ -43,19 +43,19 @@ def get_voxel_object_value(conf, dist):
 
 
 def get_3d_point(dist_unit, vref_unit, dc, sinc, cosc, framec):
-    #TODO(anshul): solve system of equations and write solution here
+
     [u, v, w] = vref_unit
     [q, r, s] = dist_unit
 
     crossterm = s*s*(u*u+v*v) + q*q*(v*v+w*w) +r*r*(u*u+w*w) - 2*q*s*u*w - 2*q*r*u*v - 2*r*s*v*w
 
-    xdet = dc**2 * (-cosc**2 * (q*q+r*r+s*s) + crossterm)# * (s*v-r*w)**2
+    xdet = dc**2 * (-cosc**2 * (q*q+r*r+s*s) + crossterm)
     xnum = cosc*dc*(u*(r*r+s*s) - q*(r*v+s*w))
 
-    ydet = dc**2 * (-cosc**2 * (q*q+r*r+s*s) + crossterm)# * (s*u-q*w)**2
+    ydet = dc**2 * (-cosc**2 * (q*q+r*r+s*s) + crossterm)
     ynum = cosc*dc*(v*(q*q+s*s) - r*(q*u+s*w))
 
-    zdet = dc**2 * (-cosc**2 * (q*q+r*r+s*s) + crossterm)# * (r*u-q*v)**2
+    zdet = dc**2 * (-cosc**2 * (q*q+r*r+s*s) + crossterm)
     znum = cosc*dc*(w*(r*r+q*q) - s*(q*u+r*v))
 
     sol1 = [(xnum + (s*v-r*w) * np.sqrt(xdet)) / crossterm,
@@ -69,9 +69,9 @@ def get_3d_point(dist_unit, vref_unit, dc, sinc, cosc, framec):
     crossp1 = np.cross(vref_unit, sol1)
     crossp2 = np.cross(vref_unit, sol2)
 
-    print(np.add(sol1, framec),np.add(sol2, framec))
-    print(crossp1, crossp2, dist_unit)
-    print(np.dot(sol1, dist_unit), np.dot(sol2, dist_unit))
+    # print(np.add(sol1, framec),np.add(sol2, framec))
+    # print(crossp1, crossp2, dist_unit)
+    # print(np.dot(sol1, dist_unit), np.dot(sol2, dist_unit))
 
     if sinc >= 0:
         if np.sum(np.multiply(crossp1, dist_unit) > 0.0) == 0:
@@ -128,12 +128,12 @@ def get_voxels_at_distance(pos_orient, bbox, dist):
     framec = [xr + dist * np.cos(thet) * np.cos(phi),
               yr + dist * np.sin(thet) * np.cos(phi),
               zr + dist * np.sin(phi)]
-    print(framec)
+    # print(framec)
     dist_unit = [np.cos(thet) * np.cos(phi), np.sin(thet) * np.cos(phi), np.sin(phi)]
     vref = np.cross(dist_unit, [0, 0, 1])
     vref_unit = vref / np.sqrt(np.sum(np.square(vref)))
 
-    print(dist_unit, vref_unit)
+    # print(dist_unit, vref_unit)
 
     width_ratio = CAMERA_WIDTH * dist / CAMERA_FL
     height_ratio = CAMERA_HEIGHT * dist / CAMERA_FL
@@ -150,7 +150,7 @@ def get_voxels_at_distance(pos_orient, bbox, dist):
         tl_sinc = -tl_sinc
     tl_3d = get_3d_point(dist_unit, vref_unit, tl_dc, tl_sinc, tl_cosc, framec)
     rotated_tl_3d = rotate_point_around_vector(tl_3d, framec, dist_unit, delt)
-    print(tl_dc, tl_cosc, tl_sinc, tl_3d)
+    # print(tl_dc, tl_cosc, tl_sinc, tl_3d)
 
     tr_dc = np.sqrt(np.sum(np.square(
                 [width_ratio * 0.5 - (yb + wb) * width_ratio/FRAME_WIDTH,
@@ -163,7 +163,7 @@ def get_voxels_at_distance(pos_orient, bbox, dist):
         tr_sinc = -tr_sinc
     tr_3d = get_3d_point(dist_unit, vref_unit, tr_dc, tr_sinc, tr_cosc, framec)
     rotated_tr_3d = rotate_point_around_vector(tr_3d, framec, dist_unit, delt)
-    print(tr_dc, tr_cosc, tr_sinc, tr_3d)
+    # print(tr_dc, tr_cosc, tr_sinc, tr_3d)
 
     bl_dc = np.sqrt(np.sum(np.square(
                 [width_ratio * 0.5 - yb * width_ratio/FRAME_WIDTH,
@@ -176,12 +176,12 @@ def get_voxels_at_distance(pos_orient, bbox, dist):
         bl_sinc = -bl_sinc
     bl_3d = get_3d_point(dist_unit, vref_unit, bl_dc, bl_sinc, bl_cosc, framec)
     rotated_bl_3d = rotate_point_around_vector(bl_3d, framec, dist_unit, delt)
-    print(bl_dc, bl_cosc, bl_sinc, bl_3d)
+    # print(bl_dc, bl_cosc, bl_sinc, bl_3d)
 
-    print(rotated_tl_3d, rotated_tr_3d, rotated_bl_3d)
+    # print(rotated_tl_3d, rotated_tr_3d, rotated_bl_3d)
     lenv1 = np.sqrt(np.sum(np.square(np.subtract(rotated_tr_3d, rotated_tl_3d))))
     lenv2 = np.sqrt(np.sum(np.square(np.subtract(rotated_bl_3d, rotated_tl_3d))))
-    print(lenv1, lenv2)
+    # print(lenv1, lenv2)
 
     vbox_locs = []
     for i in np.linspace(0, 1, int(2*lenv1/RES)):
@@ -195,12 +195,19 @@ def get_voxels_at_distance(pos_orient, bbox, dist):
                     vbox_locs.append(loc.tolist())
     return vbox_locs
 
-pos_orient = [5,5,5,np.pi/2,np.pi/4,0]
-bbox = [150,200,450,600]
-print(get_voxels_at_distance(pos_orient, bbox, 3))
+# pos_orient = [5,5,5,np.pi/2,np.pi/4,0]
+# bbox = [150,200,450,600]
+# print(get_voxels_at_distance(pos_orient, bbox, 3))
 
-def update_voxel_value_list(vox_vals, new_vox_vals, value):
-    #TODO(anshul): maybe just max function?
+
+def update_voxel_value_list(vox_vals, new_voxes, value):
+    for vox in new_voxes:
+        key = str(int(vox[0])) + ',' + str(int(vox[1])) + ',' + str(int(vox[2]))
+        if key in vox_vals:
+            if value > vox_vals[key]:
+                vox_vals[key] = value
+        else:
+            vox_vals[key] = value
     return vox_vals
 
 
@@ -214,7 +221,7 @@ def process_frame(img, pos_orient):
     class_bboxes = get_bboxes(img)
     dists = np.linspace(0, 50, int(50.0/RES) + 1)
 
-    vox_vals = []
+    vox_vals = {}
 
     for [object_class, bbox, conf] in class_bboxes:
         for dist in dists:
