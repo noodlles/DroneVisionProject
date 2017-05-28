@@ -9,6 +9,9 @@ from geometry_msgs.msg import PoseStamped
 import message_filters
 from DroneData import DroneData
 import time
+from scipy.misc import imresize
+from scipy.ndimage.filters import median_filter
+import matplotlib.pyplot as plt
 
 
 from test_frcnn3 import predict
@@ -17,7 +20,8 @@ bridge = CvBridge()
 
 def callbacksynch(image, pose, depth):
     dd.update(image, pose, depth)
-    print "A"
+    response = dd.getall()
+    print response
     
 
     
@@ -31,15 +35,13 @@ def callbackpose(pose):
     rospy.loginfo(rospy.get_caller_id() + " Pose Found")
 
 def callbackdepth(depth):
-    #print depth
-    print depth.height
-    print depth.width
-    print type(depth.data)
-    print len(depth.data)
-    print depth.encoding
-    cv_image = bridge.imgmsg_to_cv2(depth, "32FC1")
-    print cv_image.shape
-    print cv_image[0,3]
+    cv_image = bridge.imgmsg_to_cv2(depth, "passthrough")
+    cv_image = np.nan_to_num(cv_image)
+    cv_image = np.clip(cv_image, 0, 100)
+    cv_image = imresize(cv_image, (600, 800), "nearest") / 2.55
+    cv_image = median_filter(cv_image, 7)
+
+    
 
     rospy.loginfo(rospy.get_caller_id() + " Depth Found")
 
@@ -49,16 +51,16 @@ def listener():
 
     #rospy.Subscriber("left_rgb/image", Image, callbackim)
     #rospy.Subscriber("pose", PoseStamped, callbackpose)
-    rospy.Subscriber("depth_map/image", Image, callbackdepth)
+    #rospy.Subscriber("depth_map/image", Image, callbackdepth)
 
-    #left_im = message_filters.Subscriber("left_rgb/image", Image)
-    #slam_pose = message_filters.Subscriber("pose", PoseStamped)
-    #depth = message_filters.Subscriber("depth_map/points_wxyzrgb", PointCloud2)
+    left_im = message_filters.Subscriber("left_rgb/image", Image)
+    slam_pose = message_filters.Subscriber("pose", PoseStamped)
+    depth = message_filters.Subscriber("depth_map/image", Image)
 
     
 
-    #ts = message_filters.TimeSynchronizer([left_im, slam_pose, depth], 500)
-    #ts.registerCallback(callbacksynch)
+    ts = message_filters.TimeSynchronizer([left_im, slam_pose, depth], 500)
+    ts.registerCallback(callbacksynch)
 
     rospy.spin()
 

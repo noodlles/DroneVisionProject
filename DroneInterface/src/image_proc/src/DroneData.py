@@ -5,6 +5,8 @@ from cv_bridge import CvBridge, CvBridgeError
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import PoseStamped
 from test_frcnn3 import predict
+from scipy.misc import imresize
+from scipy.ndimage.filters import median_filter
 import cv2
 from scipy.misc import imresize
 
@@ -40,23 +42,35 @@ class DroneData():
         self.pose = None
 
     def update(self, im, pose, depth):
-      #  try:
-        cv_image = bridge.imgmsg_to_cv2(im, "rgb8")
-        assert(cv_image.shape == (480, 640, 3))
-        self.im = cv_image
+        try:
+            cv_image = bridge.imgmsg_to_cv2(im, "rgb8")
+            assert(cv_image.shape == (480, 640, 3))
+            self.im = cv_image
 
-        xyzrpy = parsepose(pose)
-        self.pose = xyzrpy
-        
-        print depth
+            xyzrpy = parsepose(pose)
+            self.pose = xyzrpy
+            
+            cv_image = bridge.imgmsg_to_cv2(depth, "passthrough")
+            cv_image = np.nan_to_num(cv_image)
+            cv_image = np.clip(cv_image, 0, 100)
+            cv_image = imresize(cv_image, (600, 800), "nearest") / 2.55
+            cv_image = median_filter(cv_image, 7)
+            cv_image[cv_image == 0] = np.nan
+            self.depth = cv_image
 
+            self.empty = False
+        except Exception as e:
+            print "UPDATE FAILED ", e
 
-        self.empty = False
-        #except Exception as e:
-         #   print "UPDATE FAILED ", e
+    def getall(self):
+        preds = predict(self.im)
+        results = []
+        for pred in preds:
+            res = pred
+            res.append(np.nanmean(self.depth[pred[1]:pred[3] , pred[2]:pred[4]]))
+            results.append(res)
 
-    def getall():
-        return predict(self.im), self.depth, self.pose
+        return results, self.pose
         
 
     
