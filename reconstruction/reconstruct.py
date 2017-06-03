@@ -3,7 +3,7 @@ import VoxelWorld
 
 # Dimensions of world in meters
 LENGTH = 10
-WIDTH = 10
+WIDTH = 15
 HEIGHT = 10
 
 # Side length of cubic voxel (resolution)
@@ -15,7 +15,7 @@ NUM_CLASSES = 10
 # Camera properties such as focal length, max width and height in frame
 # at focal length in front of camera, and frame rate of camera
 CAMERA_FL = 10
-CAMERA_WIDTH = 10
+CAMERA_WIDTH = 15
 CAMERA_HEIGHT = 10
 FRAME_RATE = 30  # 30 fps
 
@@ -38,7 +38,7 @@ def get_bboxes(img):
 def get_voxel_object_value(conf, dist):
     # TODO(anshul): make some stupid heuristic based on confidence and distance
     # can easily modify once we put in depth map (gaussian around dist)
-    value = 1.0
+    value = conf
     return value
 
 
@@ -211,29 +211,43 @@ def update_voxel_value_list(vox_vals, new_voxes, value):
     return vox_vals
 
 
-def process_frame(img, pos_orient):
+def process_frame(class_bboxes, pos_orient):
     # img is rgb image
     # pos_orient is a 6 vector (x, y, z, thet, phi, delt)
     #   thet is from 0 to 2pi in x-y frame with respect to x-axis
     #   phi is from -pi/2 to pi/2 with respect to x-y plane
     #   delt is from 0 to 2pi which represents tilt of drone with respect to vref (xy plane)
 
-    class_bboxes = get_bboxes(img)
-    dists = np.linspace(0, 50, int(50.0/RES) + 1)
+    maxdist = np.sqrt(LENGTH**2 + WIDTH**2 + HEIGHT**2)
+    maxsteps = int(maxdist / RES) + 1
+    dists = list(range(1, maxsteps + 1))
+    dists = [float(v) * RES for v in dists]
 
     vox_vals = {}
 
     for [object_class, bbox, conf] in class_bboxes:
         for dist in dists:
-            voxels_at_dist = get_voxels_at_distance(pos_orient, bbox, conf)
+            voxels_at_dist = get_voxels_at_distance(pos_orient, bbox, dist)
+            # print(dist, voxels_at_dist)
             value_at_dist = get_voxel_object_value(conf, dist)
             vox_vals = update_voxel_value_list(vox_vals, voxels_at_dist, value_at_dist)
-
-        for [vox_loc, val] in vox_vals:
+        # print(vox_vals)
+        for vox_loc, val in vox_vals.items():
+            loc = [int(v) for v in vox_loc.split(',')]
             world.set_vortex_single(loc, object_class, val)
 
     return True
 
+class_bboxes = [[0, [150,200,450,600], 0.8]]
+pos_orient = [5,5,5,np.pi/2,np.pi/4,0]
+process_frame(class_bboxes, pos_orient)
+class_bboxes = [[0, [100,200,450,600], 0.4]]
+pos_orient = [2,0,8,np.pi/3,0,0]
+process_frame(class_bboxes, pos_orient)
+class_bboxes = [[0, [200,300,400,500], 0.4]]
+pos_orient = [8,10,3,0,0,0]
+process_frame(class_bboxes, pos_orient)
+world.display_single(0)
 
 def process_video(frames, start_pos_orient, odometry):
     #TODO(anyone): from odometry, get pos_orient vector at each frame
