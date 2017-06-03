@@ -31,8 +31,8 @@ def parsepose(ps):
     yaw = np.arctan2(t3, t4)
 
     return np.array([pos.x, pos.y, pos.z, roll, pitch, yaw])
-    
-    
+
+
 
 class DroneData():
     def __init__(self):
@@ -49,7 +49,7 @@ class DroneData():
 
             xyzrpy = parsepose(pose)
             self.pose = xyzrpy
-            
+
             cv_image = bridge.imgmsg_to_cv2(depth, "passthrough")
             cv_image = np.nan_to_num(cv_image)
             cv_image = np.clip(cv_image, 0, 100)
@@ -71,11 +71,3 @@ class DroneData():
             results.append(res)
 
         return results, self.pose
-        
-
-    
-
-        
-        
-        
-

@@ -80,7 +80,7 @@ def get_3d_point(dist_unit, vref_unit, dc, sinc, cosc, framec):
             return np.add(sol2, framec)
         else:
             print('Well that didnt work awks')
-            assert(False)
+            # assert(False)
     else:
         if np.sum(np.multiply(crossp1, dist_unit) >= 0.0) == 3:
             return np.add(sol1, framec)
@@ -88,7 +88,7 @@ def get_3d_point(dist_unit, vref_unit, dc, sinc, cosc, framec):
             return np.add(sol2, framec)
         else:
             print('Well that didnt work awks')
-            assert(False)
+            # assert(False)
 
     return [0,0,0]
 
@@ -149,6 +149,8 @@ def get_voxels_at_distance(pos_orient, bbox, dist):
     if xb / FRAME_HEIGHT > 0.5:
         tl_sinc = -tl_sinc
     tl_3d = get_3d_point(dist_unit, vref_unit, tl_dc, tl_sinc, tl_cosc, framec)
+    if np.equal(tl_3d, [0,0,0]):
+        return []
     rotated_tl_3d = rotate_point_around_vector(tl_3d, framec, dist_unit, delt)
     # print(tl_dc, tl_cosc, tl_sinc, tl_3d)
 
@@ -162,6 +164,8 @@ def get_voxels_at_distance(pos_orient, bbox, dist):
     if xb / FRAME_HEIGHT > 0.5:
         tr_sinc = -tr_sinc
     tr_3d = get_3d_point(dist_unit, vref_unit, tr_dc, tr_sinc, tr_cosc, framec)
+    if np.equal(tr_3d, [0,0,0]):
+        return []
     rotated_tr_3d = rotate_point_around_vector(tr_3d, framec, dist_unit, delt)
     # print(tr_dc, tr_cosc, tr_sinc, tr_3d)
 
@@ -175,6 +179,8 @@ def get_voxels_at_distance(pos_orient, bbox, dist):
     if (xb + hb) / FRAME_HEIGHT > 0.5:
         bl_sinc = -bl_sinc
     bl_3d = get_3d_point(dist_unit, vref_unit, bl_dc, bl_sinc, bl_cosc, framec)
+    if np.equal(bl_3d, [0,0,0]):
+        return []
     rotated_bl_3d = rotate_point_around_vector(bl_3d, framec, dist_unit, delt)
     # print(bl_dc, bl_cosc, bl_sinc, bl_3d)
 
@@ -212,7 +218,8 @@ def update_voxel_value_list(vox_vals, new_voxes, value):
 
 
 def process_frame(class_bboxes, pos_orient):
-    # img is rgb image
+    # class_bboxes is a list of lists, where each sublist is
+    #   class, x1, y1, x2, y2, conf, dist
     # pos_orient is a 6 vector (x, y, z, thet, phi, delt)
     #   thet is from 0 to 2pi in x-y frame with respect to x-axis
     #   phi is from -pi/2 to pi/2 with respect to x-y plane
@@ -225,7 +232,8 @@ def process_frame(class_bboxes, pos_orient):
 
     vox_vals = {}
 
-    for [object_class, bbox, conf] in class_bboxes:
+    for [object_class, x1, y1, x2, y2, conf, d] in class_bboxes:
+        bbox = [x1, y1, x2, y2]
         for dist in dists:
             voxels_at_dist = get_voxels_at_distance(pos_orient, bbox, dist)
             # print(dist, voxels_at_dist)
@@ -238,16 +246,16 @@ def process_frame(class_bboxes, pos_orient):
 
     return True
 
-class_bboxes = [[0, [150,200,450,600], 0.8]]
-pos_orient = [5,5,5,np.pi/2,np.pi/4,0]
-process_frame(class_bboxes, pos_orient)
-class_bboxes = [[0, [100,200,450,600], 0.4]]
-pos_orient = [2,0,8,np.pi/3,0,0]
-process_frame(class_bboxes, pos_orient)
-class_bboxes = [[0, [200,300,400,500], 0.4]]
-pos_orient = [8,10,3,0,0,0]
-process_frame(class_bboxes, pos_orient)
-world.display_single(0)
+# class_bboxes = [[0, [150,200,450,600], 0.8]]
+# pos_orient = [5,5,5,np.pi/2,np.pi/4,0]
+# process_frame(class_bboxes, pos_orient)
+# class_bboxes = [[0, [100,200,450,600], 0.4]]
+# pos_orient = [2,0,8,np.pi/3,0,0]
+# process_frame(class_bboxes, pos_orient)
+# class_bboxes = [[0, [200,300,400,500], 0.4]]
+# pos_orient = [8,10,3,0,0,0]
+# process_frame(class_bboxes, pos_orient)
+# world.display_single(0)
 
 def process_video(frames, start_pos_orient, odometry):
     #TODO(anyone): from odometry, get pos_orient vector at each frame
