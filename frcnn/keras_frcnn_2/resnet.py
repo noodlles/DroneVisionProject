@@ -13,8 +13,8 @@ from keras.layers import Input, Add, Dense, Activation, Flatten, Convolution2D, 
 
 from keras import backend as K
 
-from keras_frcnn.RoiPoolingConv import RoiPoolingConv
-from keras_frcnn.FixedBatchNormalization import FixedBatchNormalization
+from keras_frcnn_2.RoiPoolingConv import RoiPoolingConv
+from keras_frcnn_2.FixedBatchNormalization import FixedBatchNormalization
 
 def identity_block(input_tensor, kernel_size, filters, stage, block, trainable=True):
 
@@ -32,9 +32,9 @@ def identity_block(input_tensor, kernel_size, filters, stage, block, trainable=T
     x = FixedBatchNormalization(axis=bn_axis, name=bn_name_base + '2a')(x)
     x = Activation('relu')(x)
 
-    x = Convolution2D(nb_filter2, (kernel_size, kernel_size), padding='same', name=conv_name_base + '2b', trainable=trainable)(x)
-    x = FixedBatchNormalization(axis=bn_axis, name=bn_name_base + '2b')(x)
-    x = Activation('relu')(x)
+    # x = Convolution2D(nb_filter2, (kernel_size, kernel_size), padding='same', name=conv_name_base + '2b', trainable=trainable)(x)
+    # x = FixedBatchNormalization(axis=bn_axis, name=bn_name_base + '2b')(x)
+    # x = Activation('relu')(x)
 
     x = Convolution2D(nb_filter3, (1, 1), name=conv_name_base + '2c', trainable=trainable)(x)
     x = FixedBatchNormalization(axis=bn_axis, name=bn_name_base + '2c')(x)
@@ -88,9 +88,9 @@ def conv_block(input_tensor, kernel_size, filters, stage, block, strides=(2, 2),
     x = FixedBatchNormalization(axis=bn_axis, name=bn_name_base + '2a')(x)
     x = Activation('relu')(x)
 
-    x = Convolution2D(nb_filter2, (kernel_size, kernel_size), padding='same', name=conv_name_base + '2b', trainable=trainable)(x)
-    x = FixedBatchNormalization(axis=bn_axis, name=bn_name_base + '2b')(x)
-    x = Activation('relu')(x)
+    # x = Convolution2D(nb_filter2, (kernel_size, kernel_size), padding='same', name=conv_name_base + '2b', trainable=trainable)(x)
+    # x = FixedBatchNormalization(axis=bn_axis, name=bn_name_base + '2b')(x)
+    # x = Activation('relu')(x)
 
     x = Convolution2D(nb_filter3, (1, 1), name=conv_name_base + '2c', trainable=trainable)(x)
     x = FixedBatchNormalization(axis=bn_axis, name=bn_name_base + '2c')(x)
@@ -162,14 +162,14 @@ def nn_base(input_tensor=None, trainable=False):
     x = Activation('relu')(x)
     x = MaxPooling2D((3, 3), strides=(2, 2))(x)
 
-    x = conv_block(x, 3, [64, 64, 256], stage=2, block='a', strides=(1, 1), trainable = trainable)
-    x = identity_block(x, 3, [64, 64, 256], stage=2, block='b', trainable = trainable)
-    x = identity_block(x, 3, [64, 64, 256], stage=2, block='c', trainable = trainable)
+    # x = conv_block(x, 3, [64, 64, 256], stage=2, block='a', strides=(1, 1), trainable = trainable)
+    # x = identity_block(x, 3, [64, 64, 256], stage=2, block='b', trainable = trainable)
+    # x = identity_block(x, 3, [64, 64, 256], stage=2, block='c', trainable = trainable)
 
-    x = conv_block(x, 3, [128, 128, 512], stage=3, block='a', trainable = trainable)
-    x = identity_block(x, 3, [128, 128, 512], stage=3, block='b', trainable = trainable)
-    x = identity_block(x, 3, [128, 128, 512], stage=3, block='c', trainable = trainable)
-    x = identity_block(x, 3, [128, 128, 512], stage=3, block='d', trainable = trainable)
+    # x = conv_block(x, 3, [128, 128, 512], stage=3, block='a', trainable = trainable)
+    # x = identity_block(x, 3, [128, 128, 512], stage=3, block='b', trainable = trainable)
+    # x = identity_block(x, 3, [128, 128, 512], stage=3, block='c', trainable = trainable)
+    # x = identity_block(x, 3, [128, 128, 512], stage=3, block='d', trainable = trainable)
 
     x = conv_block(x, 3, [256, 256, 1024], stage=4, block='a', trainable = trainable)
     x = identity_block(x, 3, [256, 256, 1024], stage=4, block='b', trainable = trainable)

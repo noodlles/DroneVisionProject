@@ -10,10 +10,10 @@ from keras import backend as K
 from keras.optimizers import Adam
 from keras.layers import Input
 from keras.models import Model
-from keras_frcnn_1 import config, data_generators
-from keras_frcnn_1 import losses as losses
-from keras_frcnn_1 import resnet as nn
-import keras_frcnn_1.roi_helpers as roi_helpers
+from keras_frcnn_2 import config, data_generators
+from keras_frcnn_2 import losses as losses
+from keras_frcnn_2 import resnet as nn
+import keras_frcnn_2.roi_helpers as roi_helpers
 
 sys.setrecursionlimit(40000)
 
@@ -41,9 +41,9 @@ if not options.train_path:   # if filename is not given
 	parser.error('Error: path to training data must be specified. Pass --path to command line')
 
 if options.parser == 'pascal_voc':
-	from keras_frcnn_1.pascal_voc_parser import get_data
+	from keras_frcnn_2.pascal_voc_parser import get_data
 elif options.parser == 'simple':
-	from keras_frcnn_1.simple_parser import get_data
+	from keras_frcnn_2.simple_parser import get_data
 else:
 	raise ValueError("Command line option parser must be one of 'pascal_voc' or 'simple'")
 

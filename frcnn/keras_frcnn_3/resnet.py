@@ -13,8 +13,8 @@ from keras.layers import Input, Add, Dense, Activation, Flatten, Convolution2D, 
 
 from keras import backend as K
 
-from keras_frcnn.RoiPoolingConv import RoiPoolingConv
-from keras_frcnn.FixedBatchNormalization import FixedBatchNormalization
+from keras_frcnn_3.RoiPoolingConv import RoiPoolingConv
+from keras_frcnn_3.FixedBatchNormalization import FixedBatchNormalization
 
 def identity_block(input_tensor, kernel_size, filters, stage, block, trainable=True):
 
@@ -190,8 +190,8 @@ def classifier_layers(x, input_shape, trainable=False):
     elif K.backend() == 'theano':
         x = conv_block_td(x, 3, [512, 512, 2048], stage=5, block='a', input_shape=input_shape, strides=(1, 1), trainable=trainable)
 
-    x = identity_block_td(x, 3, [512, 512, 2048], stage=5, block='b', trainable=trainable)
-    x = identity_block_td(x, 3, [512, 512, 2048], stage=5, block='c', trainable=trainable)
+    # x = identity_block_td(x, 3, [512, 512, 2048], stage=5, block='b', trainable=trainable)
+    # x = identity_block_td(x, 3, [512, 512, 2048], stage=5, block='c', trainable=trainable)
     x = TimeDistributed(AveragePooling2D((7, 7)), name='avg_pool')(x)
 
     return x
