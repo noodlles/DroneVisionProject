@@ -21,7 +21,7 @@ bridge = CvBridge()
 def callbacksynch(image, pose, depth):
     dd.update(image, pose, depth)
     response = dd.getall()
-    print response
+    print "A"
     
 
     

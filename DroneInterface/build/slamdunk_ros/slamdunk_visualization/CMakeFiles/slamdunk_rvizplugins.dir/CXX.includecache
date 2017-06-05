@@ -112,28 +112,6 @@ ros/ros.h
 rviz/panel.h
 -
 
-/home/me132/DroneVisionProject/DroneInterface/src/slamdunk_ros/slamdunk_visualization/src/SLAMDunkPoseDisplay.cpp
-SLAMDunkPoseDisplay.hpp
-/home/me132/DroneVisionProject/DroneInterface/src/slamdunk_ros/slamdunk_visualization/src/SLAMDunkPoseDisplay.hpp
-angles/angles.h
--
-tf/transform_datatypes.h
--
-QHeaderView
--
-QLabel
--
-QStandardItemModel
--
-QString
--
-QTreeView
--
-QVBoxLayout
--
-pluginlib/class_list_macros.h
--
-
 /home/me132/DroneVisionProject/DroneInterface/src/slamdunk_ros/slamdunk_visualization/src/SLAMDunkPoseDisplay.hpp
 geometry_msgs/PoseStamped.h
 -
@@ -182,12 +160,6 @@ string
 vector
 -
 time.h
--
-
-/opt/ros/indigo/include/angles/angles.h
-algorithm
--
-cmath
 -
 
 /opt/ros/indigo/include/class_loader/class_loader.h
