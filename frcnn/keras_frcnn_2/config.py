@@ -57,4 +57,4 @@ class Config:
 		else:
 			self.base_net_weights = 'resnet50_weights_tf_dim_ordering_tf_kernels.h5'
 
-		self.model_path = 'model_frcnn.hdf5'
+		self.model_path = './models/model_frcnn_shallowresnet.hdf5'

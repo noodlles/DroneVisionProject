@@ -28,7 +28,7 @@ parser.add_option("--config_filename", dest="config_filename", help=
 if not options.test_path:   # if filename is not given
 	parser.error('Error: path to test data must be specified. Pass --path to command line')
 
-
+CC = config.Config()
 config_output_filename = options.config_filename
 
 with open(config_output_filename, 'r') as f_in:
@@ -75,6 +75,7 @@ class_mapping = {v: k for k, v in class_mapping.iteritems()}
 print(class_mapping)
 class_to_color = {class_mapping[v]: np.random.randint(0, 255, 3) for v in class_mapping}
 C.num_rois = int(options.num_rois)
+C.model_path = CC.model_path
 
 if K.image_dim_ordering() == 'th':
 	input_shape_img = (3, None, None)
@@ -101,7 +102,7 @@ model_rpn = Model(img_input, rpn_layers)
 model_classifier_only = Model([feature_map_input, roi_input], classifier)
 
 model_classifier = Model([feature_map_input, roi_input], classifier)
-
+print C.model_path
 model_rpn.load_weights(C.model_path, by_name=True)
 model_classifier.load_weights(C.model_path, by_name=True)
 
@@ -115,6 +116,8 @@ classes = {}
 bbox_threshold = 0.8
 
 visualise = True
+
+times = []
 
 for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 	if not img_name.lower().endswith(('.bmp', '.jpeg', '.jpg', '.png', '.tif', '.tiff')):
@@ -218,7 +221,11 @@ for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 			cv2.rectangle(img_scaled, (textOrg[0] - 5,textOrg[1]+baseLine - 5), (textOrg[0]+retval[0] + 5, textOrg[1]-retval[1] - 5), (255, 255, 255), -1)
 			cv2.putText(img_scaled, textLabel, textOrg, cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 1)
 	print('Elapsed time = {}'.format(time.time() - st))
-	cv2.imshow('img', img_scaled)
-	cv2.waitKey(0)
-	#cv2.imwrite('./imgs/{}.png'.format(idx),img_scaled)
-	print(all_dets)
+	# cv2.imshow('img', img_scaled)
+	# cv2.waitKey(0)
+	times.append(time.time() - st)
+	cv2.imwrite('./imgs/daynight/{}_base.png'.format(idx),img_scaled)
+
+	# print(all_dets)
+# np.savetxt("times2_shallowclassifier.txt", np.array(times))
+#

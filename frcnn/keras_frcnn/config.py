@@ -57,4 +57,4 @@ class Config:
 		else:
 			self.base_net_weights = 'resnet50_weights_tf_dim_ordering_tf_kernels.h5'
 
-		self.model_path = '/home/me132/DroneVisionProject/model_frcnn2.hdf5'
+		self.model_path = './models/model_frcnn2.hdf5'
