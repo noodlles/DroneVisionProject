@@ -1,39 +1,63 @@
 import numpy as np
 import VoxelWorld
+import csv
+import os
 
 # Dimensions of world in meters
-LENGTH = 10
-WIDTH = 15
-HEIGHT = 10
+LENGTH = 60
+WIDTH = 60
+HEIGHT = 30
 
 # Side length of cubic voxel (resolution)
-RES = 0.5
+RES = 1.0
 
 # Number of object classes we are working with here
-NUM_CLASSES = 10
+NUM_CLASSES = 6
+CLASSDICT = {'vegetation': 0,
+             'sky': 1,
+             'pole': 2,
+             'sidewalk': 3,
+             'building': 4,
+             'ego vehicle': 5,
+             'rectification': 6,
+             'traffic sign': 7}
 
 # Camera properties such as focal length, max width and height in frame
 # at focal length in front of camera, and frame rate of camera
-CAMERA_FL = 10
-CAMERA_WIDTH = 15
-CAMERA_HEIGHT = 10
+CAMERA_FL = 15
+CAMERA_WIDTH = 29
+CAMERA_HEIGHT = 19
 FRAME_RATE = 30  # 30 fps
 
 # Frame properties
 FRAME_WIDTH = 800
 FRAME_HEIGHT = 600
 
+EDGE_SHARPNESS = 10.0
+
+INPUTPATH = '/Users/anshulramachandran/Downloads/data_log.csv'
+SAVEPATH = '/Users/anshulramachandran/Desktop/dronelogs/'
+RUNNAME = 'delmarcourtyard1'
+
+if not os.path.isdir(os.path.join(SAVEPATH, RUNNAME)):
+    os.makedirs(os.path.join(SAVEPATH, RUNNAME))
+
 
 world = VoxelWorld.VoxelWorld(int(LENGTH/RES), int(WIDTH/RES), int(HEIGHT/RES), NUM_CLASSES)
 
 
-def get_bboxes(img):
-    # TODO(suraj): use model to return bounding boxes with classifications
-    # img is rgb image
-    # class_bboxes = list of [object class, bbox, conf]
-    #   bbox = [top left pt, width, height]
-    return class_bboxes
+def write_config(path):
+    f = open(path, 'w')
+    f.write(RUNNAME + '\n')
+    f.write(INPUTPATH + '\n')
+    f.write('numclasses:' + str(NUM_CLASSES) + '\n')
+    f.write('length:' + str(LENGTH) + '\n')
+    f.write('width:' + str(WIDTH) + '\n')
+    f.write('height:' + str(HEIGHT) + '\n')
+    f.write('res:' + str(RES) + '\n')
+    f.close()
 
+write_config(os.path.join(SAVEPATH, RUNNAME, 'config.txt'))
 
 def get_voxel_object_value(conf, dist):
     # TODO(anshul): make some stupid heuristic based on confidence and distance
@@ -49,19 +73,19 @@ def get_3d_point(dist_unit, vref_unit, dc, sinc, cosc, framec):
 
     crossterm = s*s*(u*u+v*v) + q*q*(v*v+w*w) +r*r*(u*u+w*w) - 2*q*s*u*w - 2*q*r*u*v - 2*r*s*v*w
 
-    xdet = dc**2 * (-cosc**2 * (q*q+r*r+s*s) + crossterm)
+    xdet = dc*dc * (-cosc*cosc * (q*q+r*r+s*s) + crossterm)
     xnum = cosc*dc*(u*(r*r+s*s) - q*(r*v+s*w))
 
-    ydet = dc**2 * (-cosc**2 * (q*q+r*r+s*s) + crossterm)
+    ydet = dc*dc * (-cosc*cosc * (q*q+r*r+s*s) + crossterm)
     ynum = cosc*dc*(v*(q*q+s*s) - r*(q*u+s*w))
 
-    zdet = dc**2 * (-cosc**2 * (q*q+r*r+s*s) + crossterm)
+    zdet = dc*dc * (-cosc*cosc * (q*q+r*r+s*s) + crossterm)
     znum = cosc*dc*(w*(r*r+q*q) - s*(q*u+r*v))
 
-    sol1 = [(xnum + (s*v-r*w) * np.sqrt(xdet)) / crossterm,
+    sol1 = [(xnum - (s*v-r*w) * np.sqrt(xdet)) / crossterm,
             (ynum + (s*u-q*w) * np.sqrt(ydet)) / crossterm,
             (znum + (q*v-r*u) * np.sqrt(zdet)) / crossterm]
-    sol2 = [(xnum - (s*v-r*w) * np.sqrt(xdet)) / crossterm,
+    sol2 = [(xnum + (s*v-r*w) * np.sqrt(xdet)) / crossterm,
             (ynum - (s*u-q*w) * np.sqrt(ydet)) / crossterm,
             (znum - (q*v-r*u) * np.sqrt(zdet)) / crossterm]
     # If cross product between vref and sol vector is in same direction as
@@ -72,23 +96,25 @@ def get_3d_point(dist_unit, vref_unit, dc, sinc, cosc, framec):
     # print(np.add(sol1, framec),np.add(sol2, framec))
     # print(crossp1, crossp2, dist_unit)
     # print(np.dot(sol1, dist_unit), np.dot(sol2, dist_unit))
+    # print(cosc,  np.dot(vref_unit, sol1)/dc, np.dot(vref_unit, sol2)/dc)
+    # print(dc*dc, np.sum(np.square(sol1)), np.sum(np.square(sol2)))
 
     if sinc >= 0:
-        if np.sum(np.multiply(crossp1, dist_unit) > 0.0) == 0:
+        if np.sum(np.multiply(crossp1, dist_unit) > 0) == 0:
             return np.add(sol1, framec)
-        elif np.sum(np.multiply(crossp2, dist_unit) > 0.0) == 0:
+        elif np.sum(np.multiply(crossp2, dist_unit) > 0) == 0:
             return np.add(sol2, framec)
         else:
             print('Well that didnt work awks')
-            # assert(False)
+            assert(False)
     else:
-        if np.sum(np.multiply(crossp1, dist_unit) >= 0.0) == 3:
+        if np.sum(np.multiply(crossp1, dist_unit) >= 0) == 3:
             return np.add(sol1, framec)
-        elif np.sum(np.multiply(crossp2, dist_unit) >= 0.0) == 3:
+        elif np.sum(np.multiply(crossp2, dist_unit) >= 0) == 3:
             return np.add(sol2, framec)
         else:
             print('Well that didnt work awks')
-            # assert(False)
+            assert(False)
 
     return [0,0,0]
 
@@ -121,10 +147,12 @@ def get_voxels_at_distance(pos_orient, bbox, dist):
     # essentially takes position and orientation of camera, the bbox within
     # a frame of FRAME_WIDTH x FRAME_HEIGHT dimensions, and gives values
     # of vbox cell assuming object is actually dist distance away
-    [xr, yr, zr, thet, phi, delt] = pos_orient
+    [xr, yr, zr, phi, delt, thet] = pos_orient
     [xb, yb, xb2, yb2] = bbox
-    wb = yb2 - yb
-    hb = xb2 - xb
+    # wb = yb2 - yb
+    # hb = xb2 - xb
+    wb = xb2 - xb
+    hb = yb2 - yb
     framec = [xr + dist * np.cos(thet) * np.cos(phi),
               yr + dist * np.sin(thet) * np.cos(phi),
               zr + dist * np.sin(phi)]
@@ -140,46 +168,47 @@ def get_voxels_at_distance(pos_orient, bbox, dist):
     # print(width_ratio, height_ratio)
 
     tl_dc = np.sqrt(np.sum(np.square(
-                [width_ratio * 0.5 - yb * width_ratio/FRAME_WIDTH,
-                 height_ratio * 0.5 - xb * height_ratio/FRAME_HEIGHT])))
-    tl_cosc = np.absolute((width_ratio * 0.5 - yb * width_ratio/FRAME_WIDTH) / tl_dc)
-    tl_sinc = np.absolute((height_ratio * 0.5 - xb * height_ratio/FRAME_HEIGHT) / tl_dc)
-    if yb / FRAME_WIDTH < 0.5:
+                [width_ratio * 0.5 - xb * width_ratio/FRAME_WIDTH,
+                 height_ratio * 0.5 - yb * height_ratio/FRAME_HEIGHT])))
+    tl_cosc = np.absolute((width_ratio * 0.5 - xb * width_ratio/FRAME_WIDTH) / tl_dc)
+    tl_sinc = np.absolute((height_ratio * 0.5 - yb * height_ratio/FRAME_HEIGHT) / tl_dc)
+    if xb / FRAME_WIDTH < 0.5:
         tl_cosc = -tl_cosc
-    if xb / FRAME_HEIGHT > 0.5:
+    if yb / FRAME_HEIGHT > 0.5:
         tl_sinc = -tl_sinc
     tl_3d = get_3d_point(dist_unit, vref_unit, tl_dc, tl_sinc, tl_cosc, framec)
-    if np.equal(tl_3d, [0,0,0]):
+    # print(tl_dc, tl_cosc, tl_sinc, tl_3d)
+    if np.equal(tl_3d, [0,0,0]).all():
         return []
     rotated_tl_3d = rotate_point_around_vector(tl_3d, framec, dist_unit, delt)
     # print(tl_dc, tl_cosc, tl_sinc, tl_3d)
 
     tr_dc = np.sqrt(np.sum(np.square(
-                [width_ratio * 0.5 - (yb + wb) * width_ratio/FRAME_WIDTH,
-                 height_ratio * 0.5 - xb * height_ratio/FRAME_HEIGHT])))
-    tr_cosc = np.absolute((width_ratio * 0.5 - (yb + wb) * width_ratio/FRAME_WIDTH) / tr_dc)
-    tr_sinc = np.absolute((height_ratio * 0.5 - xb * height_ratio/FRAME_HEIGHT) / tr_dc)
-    if (yb + wb) / FRAME_WIDTH < 0.5:
+                [width_ratio * 0.5 - (xb + wb) * width_ratio/FRAME_WIDTH,
+                 height_ratio * 0.5 - yb * height_ratio/FRAME_HEIGHT])))
+    tr_cosc = np.absolute((width_ratio * 0.5 - (xb + wb) * width_ratio/FRAME_WIDTH) / tr_dc)
+    tr_sinc = np.absolute((height_ratio * 0.5 - yb * height_ratio/FRAME_HEIGHT) / tr_dc)
+    if (xb + wb) / FRAME_WIDTH < 0.5:
         tr_cosc = -tr_cosc
-    if xb / FRAME_HEIGHT > 0.5:
+    if yb / FRAME_HEIGHT > 0.5:
         tr_sinc = -tr_sinc
     tr_3d = get_3d_point(dist_unit, vref_unit, tr_dc, tr_sinc, tr_cosc, framec)
-    if np.equal(tr_3d, [0,0,0]):
+    if np.equal(tr_3d, [0,0,0]).all():
         return []
     rotated_tr_3d = rotate_point_around_vector(tr_3d, framec, dist_unit, delt)
     # print(tr_dc, tr_cosc, tr_sinc, tr_3d)
 
     bl_dc = np.sqrt(np.sum(np.square(
-                [width_ratio * 0.5 - yb * width_ratio/FRAME_WIDTH,
-                 height_ratio * 0.5 - (xb + hb) * height_ratio/FRAME_HEIGHT])))
-    bl_cosc = np.absolute((width_ratio * 0.5 - yb * width_ratio/FRAME_WIDTH) / bl_dc)
-    bl_sinc = np.absolute((height_ratio * 0.5 - (xb + hb) * height_ratio/FRAME_HEIGHT) / bl_dc)
-    if yb / FRAME_WIDTH < 0.5:
+                [width_ratio * 0.5 - xb * width_ratio/FRAME_WIDTH,
+                 height_ratio * 0.5 - (yb + hb) * height_ratio/FRAME_HEIGHT])))
+    bl_cosc = np.absolute((width_ratio * 0.5 - xb * width_ratio/FRAME_WIDTH) / bl_dc)
+    bl_sinc = np.absolute((height_ratio * 0.5 - (yb + hb) * height_ratio/FRAME_HEIGHT) / bl_dc)
+    if xb / FRAME_WIDTH < 0.5:
         bl_cosc = -bl_cosc
-    if (xb + hb) / FRAME_HEIGHT > 0.5:
+    if (yb + hb) / FRAME_HEIGHT > 0.5:
         bl_sinc = -bl_sinc
     bl_3d = get_3d_point(dist_unit, vref_unit, bl_dc, bl_sinc, bl_cosc, framec)
-    if np.equal(bl_3d, [0,0,0]):
+    if np.equal(bl_3d, [0,0,0]).all():
         return []
     rotated_bl_3d = rotate_point_around_vector(bl_3d, framec, dist_unit, delt)
     # print(bl_dc, bl_cosc, bl_sinc, bl_3d)
@@ -206,18 +235,46 @@ def get_voxels_at_distance(pos_orient, bbox, dist):
 # print(get_voxels_at_distance(pos_orient, bbox, 3))
 
 
-def update_voxel_value_list(vox_vals, new_voxes, value):
+def update_voxel_value_list(vox_vals, new_voxes, value, objclass):
     for vox in new_voxes:
         key = str(int(vox[0])) + ',' + str(int(vox[1])) + ',' + str(int(vox[2]))
         if key in vox_vals:
-            if value > vox_vals[key]:
-                vox_vals[key] = value
+            if value > vox_vals[key][0]:
+                vox_vals[key] = [value, objclass]
         else:
-            vox_vals[key] = value
+            vox_vals[key] = [value, objclass]
     return vox_vals
 
 
-def process_frame(class_bboxes, pos_orient):
+
+def get_bbox_voxels(vox_vals):
+    locs = []
+    for vox_loc, val in vox_vals.items():
+        loc = [int(v) for v in vox_loc.split(',')]
+        locs.append(loc)
+    return locs
+
+def update_all_voxel_list(all_vox_list, vox_vals):
+    new_voxels = get_bbox_voxels(vox_vals)
+    for vox_loc in new_voxels:
+        if vox_loc not in all_vox_list:
+            all_vox_list.append(vox_loc)
+    return all_vox_list
+
+
+def update_no_bbox_voxels(in_bbox_voxels, all_voxels):
+    for voxel in all_voxels:
+        if voxel not in in_bbox_voxels:
+            world.set_vortex_single(voxel, NUM_CLASSES, 0.8)
+            # min_dist = np.sqrt(np.sum(np.square([LENGTH, WIDTH, HEIGHT])))
+            # for in_voxel in in_bbox_voxels:
+            #     min_dist = min(min_dist,
+            #                    np.sqrt(np.sum(np.square([a - b for a, b in zip(in_voxel, voxel)]))))
+            # value = RES * min_dist / EDGE_SHARPNESS
+            # world.set_vortex_single(voxel, NUM_CLASSES, value)
+
+
+def process_frame(class_bboxes, pos_orient, framecount):
     # class_bboxes is a list of lists, where each sublist is
     #   class, x1, y1, x2, y2, conf, dist
     # pos_orient is a 6 vector (x, y, z, thet, phi, delt)
@@ -225,24 +282,53 @@ def process_frame(class_bboxes, pos_orient):
     #   phi is from -pi/2 to pi/2 with respect to x-y plane
     #   delt is from 0 to 2pi which represents tilt of drone with respect to vref (xy plane)
 
+    print('new frame ' + str(len(class_bboxes)) + ' bboxes')
     maxdist = np.sqrt(LENGTH**2 + WIDTH**2 + HEIGHT**2)
     maxsteps = int(maxdist / RES) + 1
     dists = list(range(1, maxsteps + 1))
     dists = [float(v) * RES for v in dists]
 
-    vox_vals = {}
+    print('getting all voxels')
+    all_voxels = []
+    for dist in dists:
+        voxels_at_dist = get_voxels_at_distance(pos_orient, [0, 0, FRAME_WIDTH, FRAME_HEIGHT], dist)
+        for voxel in voxels_at_dist:
+            if voxel not in all_voxels:
+                all_voxels.append([int(v) for v in voxel])
+    world.update_visited(all_voxels)
 
+    in_bbox_voxels = []
     for [object_class, x1, y1, x2, y2, conf, d] in class_bboxes:
-        bbox = [x1, y1, x2, y2]
-        for dist in dists:
+        vox_vals = {}
+        dists2 = [i for i in dists if i >= d]
+
+        print('new bbox')
+        print(object_class, x1, y1, x2, y2, conf)
+        bbox = [max(0, x1), max(0, y1), min(FRAME_WIDTH, x2), min(FRAME_HEIGHT, y2)]
+        for dist in dists2:
             voxels_at_dist = get_voxels_at_distance(pos_orient, bbox, dist)
             # print(dist, voxels_at_dist)
             value_at_dist = get_voxel_object_value(conf, dist)
-            vox_vals = update_voxel_value_list(vox_vals, voxels_at_dist, value_at_dist)
+            vox_vals = update_voxel_value_list(vox_vals, voxels_at_dist, value_at_dist, object_class)
         # print(vox_vals)
+        in_bbox_voxels = update_all_voxel_list(in_bbox_voxels, vox_vals)
+        print('updating bbox voxels')
         for vox_loc, val in vox_vals.items():
             loc = [int(v) for v in vox_loc.split(',')]
-            world.set_vortex_single(loc, object_class, val)
+            world.set_vortex_single(loc, val[1], val[0])
+
+    print('updating non-bbox voxels')
+    # in_bbox_voxels = get_bbox_voxels(vox_vals)
+    update_no_bbox_voxels(in_bbox_voxels, all_voxels)
+
+    # world.display_visited()
+    # world.display_unvisited()
+    centers, posorients = world.get_posorients(5, 0)
+    print(centers, posorients)
+    # world.display_posorients(centers, posorients)
+    # world.display_all()
+
+    world.save_world(os.path.join(SAVEPATH, RUNNAME, str(framecount)))
 
     return True
 
@@ -257,8 +343,30 @@ def process_frame(class_bboxes, pos_orient):
 # process_frame(class_bboxes, pos_orient)
 # world.display_single(0)
 
-def process_video(frames, start_pos_orient, odometry):
-    #TODO(anyone): from odometry, get pos_orient vector at each frame
-    #   use FRAME_RATE constant somewhere in this
-    for [frame, pos_orient] in zip(frames, pos_orients):
-        process_frame(frame, pos_orient)
+def process_video(path):
+    with open(path, 'r') as datafile:
+        reader = csv.reader(datafile, delimiter=',')
+        framecount = 0
+        for row in reader:
+            framecount += 1
+            pos_orient = list(map(lambda x: float(x), row[:6]))
+            pos_orient[0] += WIDTH * 0.5
+            pos_orient[1] += LENGTH * 0.5
+            pos_orient[2] += HEIGHT * 0.5
+            num_objects = int((len(row) - 6)/7)
+            class_bboxes = []
+            for i in range(num_objects):
+                objdata = row[6 + 7*i: 6 + 7*(i+1)]
+                if objdata[0] != '':
+                    objdata[0] = CLASSDICT[objdata[0]]
+                    floatdata = list(map(lambda x: float(x), objdata))
+                    class_bboxes.append(floatdata)
+            class_bboxes = np.asarray(class_bboxes)
+            class_bboxes[np.isnan(class_bboxes)] = 0
+            # print(class_bboxes)
+            process_frame(class_bboxes, pos_orient, framecount)
+
+process_video(INPUTPATH)
+world.display_visited()
+world.display_unvisited()
+world.display_all()
