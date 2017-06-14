@@ -2,3 +2,6 @@ data/
 models/
 imgs/
 *.hdf5
+*.jpg
+*.png
+*.jpeg
