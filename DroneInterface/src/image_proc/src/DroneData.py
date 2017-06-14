@@ -40,12 +40,15 @@ class DroneData():
         self.im = None
         self.depth = None
         self.pose = None
+        self.count = 0
 
     def update(self, im, pose, depth):
         try:
             cv_image = bridge.imgmsg_to_cv2(im, "rgb8")
             assert(cv_image.shape == (480, 640, 3))
             self.im = cv_image
+            cv2.imwrite("im"+str(self.count)+".png", cv_image)
+            self.count += 1
 
             xyzrpy = parsepose(pose)
             self.pose = xyzrpy

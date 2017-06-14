@@ -31,8 +31,8 @@ def parsepose(ps):
     yaw = np.arctan2(t3, t4)
 
     return np.array([pos.x, pos.y, pos.z, roll, pitch, yaw])
-    
-    
+
+
 
 class DroneData():
     def __init__(self):
@@ -40,16 +40,18 @@ class DroneData():
         self.im = None
         self.depth = None
         self.pose = None
+        self.count = 0
 
     def update(self, im, pose, depth):
         try:
             cv_image = bridge.imgmsg_to_cv2(im, "rgb8")
             assert(cv_image.shape == (480, 640, 3))
             self.im = cv_image
+            cv2.imwrite("im"+str(self.count)+".png", cv_image)
 
             xyzrpy = parsepose(pose)
             self.pose = xyzrpy
-            
+
             cv_image = bridge.imgmsg_to_cv2(depth, "passthrough")
             cv_image = np.nan_to_num(cv_image)
             cv_image = np.clip(cv_image, 0, 100)
@@ -67,17 +69,7 @@ class DroneData():
         results = []
         for pred in preds:
             res = pred
-            dpt = np.nanmean(self.depth[pred[1]:pred[3] , pred[2]:pred[4]])
-
-            res.append(np.mean(self.depth[pred[1]:pred[3] , pred[2]:pred[4]]))
+            res.append(np.nanmean(self.depth[pred[1]:pred[3] , pred[2]:pred[4]]))
             results.append(res)
 
         return results, self.pose
-        
-
-    
-
-        
-        
-        
-
