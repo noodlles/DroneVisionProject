@@ -1,2 +1,3 @@
-# DroneVisionProject
-Caltech EE/CS 148 Course Project: Using Drones + Computer Vision for 3D Mapping/classification
+# "Annotated Reconstruction of 3D Spaces Using Drones"
+Suraj Nair, Anshul Ramachandran, Peter Kundzicz. IEEE MIT URTC 2017
+Best Paper Presentation
